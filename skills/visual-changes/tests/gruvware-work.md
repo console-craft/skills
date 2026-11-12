@@ -1,0 +1,8 @@
+# Gruvware extraction
+
+- [x] Pin user source to ovi-ispas/diff2html@805d86760c3f7dd0acccb2b0c16059d904b30cfa; verify both blob hashes. Raw TS and parsed data retained under external visual-changes-gruvware-2026-11-08 artifact directory. Parse data only; never execute the downloaded modules.
+- [x] Verify Pierre custom TextMate registration preserves both 42-rule palettes, including actual export/number/string tokens. No Gruvbox alias or new dependency.
+- [x] RED: dedicated Gruvware default assertion failed against the eight-theme template ("Fresh guides must default to Gruvware Dark").
+- [x] Embed exact custom data, add matching shell palettes, make fresh/reset fallback Gruvware Dark; preserve valid saved choices and all existing options. JSON equality against pinned parsed source and dedicated real-token/default/reset test pass.
+- [x] Update default-dependent tests/docs; verify all ten themes and both frozen guides; focused review for custom registration/default compatibility. All viewer suites pass, 84 PR / 38 local acceptance checks, 49 real two-guide theme checks. Independent review: no Critical/Important/Minor issues; review deliberately left full artifact/browser verification to main, now complete, and exhaustive scope/language/upstream race checks outside scope. Raw data equality, module/test/JSON parsing, Markdown links and whitespace pass.
+- [x] Refresh owned user tabs, stage nonignored changes only, close test browser; no commit. Both tabs refreshed; source/stops/counts preserved and servers retained. Exact definitions/artifact fidelity rechecked, docs/tests ignored and absent from index, cached whitespace clean, no unstaged tracked changes. Known modeled upstream rapid-switch logging caveat unchanged.

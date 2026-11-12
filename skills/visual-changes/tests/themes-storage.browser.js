@@ -1,0 +1,82 @@
+async page => {
+  const source = await (await page.request.get('http://localhost:43720/template')).text();
+  const data = JSON.parse(source.match(/<script id="tour-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  const check = (condition, message) => { if (!condition) throw new Error(message); };
+  await page.setViewportSize({ width: 1440, height: 950 });
+  const mount = async (payload = data, blocked = false, wait = true) => {
+    const json = JSON.stringify(payload).replaceAll('<', '\\u003c');
+    let html = source.replace(/(<script id="tour-data" type="application\/json">)[\s\S]*?(<\/script>)/, (_, a, b) => a + json + b);
+    if (blocked) html = html.replace('<script type="module">', '<script>Storage.prototype.getItem = Storage.prototype.setItem = () => { throw new Error("Storage blocked"); };</script><script type="module">');
+    await page.route('https://theme-storage.test/tour', route => route.fulfill({ contentType: 'text/html', body: html }));
+    await page.goto('https://theme-storage.test/tour');
+    await page.locator('body[data-viewer-state="ready"]').waitFor();
+    if (wait) await page.locator('#engine-status[data-state="loaded"]').waitFor();
+  };
+  await mount(); await page.evaluate(() => localStorage.clear()); await mount();
+  const select = page.getByRole('combobox', { name: 'Theme', exact: true });
+  await page.locator('#mark-read').click();
+  const key = await page.evaluate(() => Object.keys(localStorage)[0]);
+  await select.selectOption('tokyo-night');
+  check(await page.evaluate(key => JSON.parse(localStorage.getItem(key)).theme === 'tokyo-night', key), 'Selected theme must be saved in the existing guide preference record');
+  check(await page.evaluate(() => Object.keys(localStorage).length) === 1, 'Theme does not create a new global preference key');
+  check(await page.evaluate(key => Object.keys(JSON.parse(localStorage.getItem(key))).every(name => ['collapsed', 'cards', 'layout', 'overflow', 'theme', 'read'].includes(name)), key), 'Theme preferences store only allowed UI state, never comparison source or prose');
+  await page.reload();
+  await page.locator('#engine-status[data-state="loaded"]').waitFor();
+  check(await select.inputValue() === 'tokyo-night' && await page.locator('html').getAttribute('data-theme') === 'tokyo-night', 'Saved theme restores its dropdown and palette');
+  check(await page.locator('#rail-count').textContent() === '1 / 4 read', 'Saving a theme preserves saved read marks');
+  await page.locator('#next').click();
+  await page.emulateMedia({ colorScheme: 'light' });
+  check(await select.inputValue() === 'tokyo-night' && await page.locator('body').evaluate(el => getComputedStyle(el).backgroundColor) === 'rgb(26, 27, 38)', 'Navigation and OS light preference do not replace an explicit theme');
+  const other = JSON.parse(JSON.stringify(data)); other.comparison.head = 'another-theme-comparison';
+  await mount(other);
+  check(await select.inputValue() === 'gruvware-dark', 'Another guide starts with its own default theme');
+  await select.selectOption('pierre-light'); await page.locator('#mark-read').click(); await page.locator('#next').click();
+  await page.locator('#reset-settings').click();
+  check(await select.inputValue() === 'gruvware-dark' && await page.locator('html').getAttribute('data-theme') === 'gruvware-dark', 'Reset guide restores the Gruvware Dark default');
+  check(await page.locator('#tour').getAttribute('data-stop-id') === 'identity' && await page.locator('#rail-count').textContent() === '0 / 4 read', 'Reset still returns to first stop and clears read marks');
+  check(await page.evaluate(key => Object.keys(localStorage).length === 1 && JSON.parse(localStorage.getItem(key)).theme === 'tokyo-night', key), 'Reset removes only its own record without rewriting it or clearing another guide theme');
+  await mount();
+  for (const theme of ['pierre-dark', 'pierre-light', 'nord', 'dracula', 'catppuccin-mocha', 'gruvbox-light-medium', 'gruvbox-dark-medium', 'gruvware-dark', 'gruvware-light']) {
+    await select.selectOption(theme); await page.reload();
+    await page.locator('#engine-status[data-state="loaded"]').waitFor();
+    check(await select.inputValue() === theme, 'Explicit saved choice is preserved despite the new default: ' + theme);
+  }
+  await page.evaluate(key => localStorage.setItem(key, JSON.stringify({ read: ['identity'], layout: 'split' })), key);
+  await page.reload(); await page.locator('#engine-status[data-state="loaded"]').waitFor();
+  check(await select.inputValue() === 'gruvware-dark' && await page.locator('#rail-count').textContent() === '1 / 4 read' && await page.locator('#split').getAttribute('aria-pressed') === 'true', 'Legacy preferences without a theme adopt Gruvware Dark without losing read/layout state');
+  for (const theme of [undefined, '__proto__', 'constructor', 'unknown-theme', {}, ['pierre-light'], 123]) {
+    await page.evaluate(({ key, theme }) => localStorage.setItem(key, JSON.stringify({ theme })), { key, theme });
+    await page.reload(); await page.locator('#engine-status[data-state="loaded"]').waitFor();
+    check(await select.inputValue() === 'gruvware-dark', 'Absent or invalid/prototype/non-string saved themes safely default to Gruvware Dark');
+  }
+  await mount(data, true);
+  await page.locator('#storage-status').waitFor({ state: 'visible' });
+  check(await select.inputValue() === 'gruvware-dark', 'Blocked storage uses the new default without blocking controls');
+  await select.selectOption('pierre-light');
+  await page.locator('#next').click();
+  check(await select.inputValue() === 'pierre-light', 'Blocked storage still allows in-memory theme switching and navigation');
+  await page.locator('[data-action="focus-excerpt"]').click();
+  await page.waitForFunction(() => getComputedStyle(document.querySelector('#excerpts diffs-container')).backgroundColor === 'rgb(255, 255, 255)');
+  const engine = 'https://esm.sh/@pierre/diffs@1.6.4?bundle';
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  await page.route(engine, async route => { await gate; await route.continue(); });
+  await mount(data, false, false);
+  await select.selectOption('gruvware-light'); await page.locator('#notes button').first().click();
+  await page.locator('#wrap').click();
+  release(); await page.locator('#engine-status[data-state="loaded"]').waitFor();
+  await page.waitForFunction(() => getComputedStyle(document.querySelector('#excerpts diffs-container')).backgroundColor === 'rgb(251, 241, 199)');
+  check(await page.locator('#excerpts pre[data-overflow="wrap"]').count() > 0, 'Wrapping chosen before CDN readiness reaches the actual renderer');
+  check(await page.locator('#notes button[aria-pressed="true"]').count() === 1, 'Theme selection before CDN readiness preserves note ownership');
+  await page.unroute(engine);
+  await page.route(engine, route => route.abort());
+  await mount(data, false, false);
+  await page.locator('#engine-status[data-state="error"]').waitFor();
+  await page.locator('#wrap').click();
+  check(await page.locator('#wrap').getAttribute('aria-pressed') === 'true', 'CDN failure does not disable wrapping preference controls');
+  await select.selectOption('gruvware-light');
+  check(await page.locator('body').evaluate(el => getComputedStyle(el).backgroundColor) === 'rgb(251, 241, 199)', 'CDN failure does not disable custom shell theme controls');
+  await page.unroute(engine);
+  await page.emulateMedia({ colorScheme: 'dark' });
+  return 'PASS: per-guide theme persistence/isolation, reload/navigation, OS independence, reset, invalid saved values, blocked storage, pending/failed CDN';
+}

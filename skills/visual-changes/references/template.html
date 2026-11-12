@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="en" class="dark" data-theme="gruvware-dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Visual Changes</title>
+  <link rel="stylesheet" data-library="flowbite" data-version="3.1.2" href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css">
+  <style>
+    :root{color-scheme:dark;--background:#0c0e11;--foreground:#e9eaed;--card:#12151a;--muted:#1b2027;--muted-foreground:#939ba8;--border:#282e37;--primary:#c4efcf;--primary-foreground:#132a1b;--accent:#9ebcf3;--warning:#ecc58f;--success:#a6d9b1;--radius:10px;--font-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--font-mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+    *{box-sizing:border-box}body{margin:0;background:var(--background);color:var(--foreground);font:14px/1.6 var(--font-sans)}button,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.35}button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}button,select{color:inherit}button{transition:background-color .12s,border-color .12s}a{color:var(--accent)}.mono,code,kbd{font-family:var(--font-mono)}code{font-size:.9em;color:var(--accent)}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.7 var(--font-mono)}[hidden]{display:none!important}.shell{max-width:1540px;padding:0 34px;margin:auto}.appbar{border-bottom:1px solid var(--border);background:var(--background)}.appbar-inner{height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:-.02em}.brand-mark{display:grid;place-items:center;width:25px;height:25px;font-size:18px}.divider{color:#3d454f;margin:0 3px}.badge{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border:1px solid var(--border);border-radius:6px;font-size:11px;white-space:nowrap;color:var(--muted-foreground)}.badge.demo{border-color:#39334f;color:#c4b4ed;background:#1b1725}.badge.ready{color:var(--success);background:#14231b;border-color:#253e2e}.dot{width:5px;height:5px;border-radius:50%;background:currentColor}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:34px;border:1px solid var(--border);border-radius:7px;padding:6px 12px;background:var(--card);font-size:12px;font-weight:500;white-space:nowrap}.btn:hover:not(:disabled){background:var(--muted);border-color:#434d5a}.btn.primary{background:var(--primary);border-color:var(--primary);color:var(--primary-foreground)}.btn.primary:hover:not(:disabled){background:#d4f5dc}.btn.ghost{background:transparent;border-color:transparent;color:var(--muted-foreground)}.btn.ghost:hover{background:var(--muted);color:var(--foreground)}.btn.icon{width:33px;padding:0;font-size:17px}.pr-head{padding-top:34px;padding-bottom:29px;border-bottom:1px solid var(--border)}.eyebrow{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--muted-foreground)}h1{font-size:clamp(21px,2.7vw,29px);font-weight:600;line-height:1.35;letter-spacing:-.035em;margin:9px 0 13px}.pr-meta{display:flex;flex-wrap:wrap;align-items:center;gap:9px;font-size:12px;color:var(--muted-foreground)}.pr-meta .mono{font-size:11px}.workspace{display:grid;grid-template-columns:220px minmax(0,1fr) 230px;gap:34px;padding-top:30px;padding-bottom:48px;align-items:start}.sidebar{position:sticky;top:24px;min-width:0}.rail-top{display:flex;align-items:center;justify-content:space-between;margin:8px 0 15px}.rail-top span{font-size:11px;color:var(--muted-foreground)}.rail{display:grid;gap:5px;list-style:none;padding:0;margin:0}.rail button{display:flex;align-items:flex-start;gap:11px;width:100%;padding:12px 10px;background:none;border:1px solid transparent;border-radius:8px;text-align:left;color:var(--muted-foreground)}.rail button:hover{background:var(--card)}.rail button[aria-current=step]{background:#171e25;border-color:#2e3b49;color:var(--foreground)}.bullet{display:grid;place-items:center;flex-shrink:0;width:23px;height:23px;border:1px solid #3c4654;border-radius:50%;font-size:10px;color:var(--muted-foreground);margin-top:1px}.rail button[aria-current=step] .bullet{border-color:var(--accent);color:var(--accent);background:#273449}.bullet.read{border-color:#3b654a;color:var(--success)}.rail-title{font-size:12px;font-weight:500;line-height:1.5}.rail-sub{font-size:10px;color:var(--muted-foreground);margin-top:5px}.rail-footer{margin-top:25px;font-size:11px;color:var(--muted-foreground)}.progress-track{height:3px;border-radius:4px;background:var(--muted);overflow:hidden;margin-bottom:9px}.progress-fill{height:100%;background:var(--success);width:0}.shortcut{display:flex;align-items:center;gap:6px;margin-top:17px;color:var(--muted-foreground);font-size:10px}kbd{border:1px solid var(--border);border-bottom-width:2px;border-radius:4px;background:var(--card);padding:1px 5px;font-size:10px}.main{min-width:0}.stop-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}.stop-meta p{font-size:11px;color:var(--muted-foreground);margin:0}.stop-title{font-size:clamp(22px,2.2vw,28px);font-weight:550;line-height:1.3;letter-spacing:-.035em;margin:0 0 13px}.stop-summary{font-size:13px;line-height:1.85;color:#a8b0bc;max-width:750px;margin:0 0 23px;text-wrap:pretty}.stop-summary strong{color:var(--foreground);font-weight:500}.attention{border:1px solid #57442c;border-radius:8px;background:#211c15;padding:13px 15px;margin:0 0 20px;font-size:12px;color:#d9c8b0}.attention strong{display:block;color:var(--warning);font-size:11px;margin-bottom:4px}.code-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11px;color:var(--muted-foreground);margin:0 0 9px}.diff-card{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#101318}.diff-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 13px;border-bottom:1px solid var(--border);background:#15191f}.file-name{display:flex;align-items:center;gap:8px;min-width:0;font:11px var(--font-mono);color:#cad2df;overflow-wrap:anywhere}.file-glyph{color:var(--muted-foreground);font-size:13px}.segments{display:flex;border:1px solid var(--border);border-radius:5px;padding:2px;flex-shrink:0}.segments button{font-size:10px;padding:3px 7px;border:0;background:transparent;border-radius:3px;color:var(--muted-foreground)}.segments button[aria-pressed=true]{background:#303947;color:var(--foreground)}#diff{min-height:150px}diffs-container{display:block;--diffs-font-family:var(--font-mono);--diffs-font-size:11px;--diffs-line-height:22px}.diff-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 13px;border-top:1px solid var(--border);font-size:10px;color:var(--muted-foreground)}.loading{padding:30px;font-size:12px;color:var(--muted-foreground)}.error{padding:20px;font-size:12px;color:var(--warning)}.question-box{margin-top:24px;border-top:1px solid var(--border);padding-top:19px}.question-box h3{font-size:11px;font-weight:500;color:var(--muted-foreground);margin:0 0 10px}.question{display:flex;align-items:center;gap:9px;text-align:left;font-size:12px;color:#b4c6e7;background:none;border:0;padding:4px 0}.question:hover{color:#d7e4ff}.question .question-mark{border:1px solid #3a4962;border-radius:50%;width:15px;height:15px;display:grid;place-items:center;font-size:10px}.stop-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--border);margin-top:25px;padding-top:19px}.notes-column{position:sticky;top:20px;min-width:0}.notes-heading{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:500;color:var(--muted-foreground);margin-bottom:17px}.note-card{padding:0 0 22px 0;display:grid;grid-template-columns:19px minmax(0,1fr);gap:9px}.note-card+.note-card{border-top:1px solid var(--border);padding-top:18px}.note-letter{display:grid;place-items:center;width:19px;height:19px;border-radius:50%;background:#202c40;color:#b0cafa;font:10px var(--font-mono);margin-top:1px}.note-title{font-size:12px;font-weight:500;color:#d5dbe5;border:0;background:none;padding:0;text-align:left;line-height:1.5}.note-title:hover{text-decoration:underline;text-underline-offset:3px}.note-body{font-size:11px;line-height:1.8;color:var(--muted-foreground);margin-top:7px}.note-location{font:10px var(--font-mono);color:#647185;margin-top:8px}.note-card.active .note-title{color:var(--accent)}.prototype-note{border-top:1px solid var(--border);padding-top:15px;font-size:10px;line-height:1.8;color:#707b8b;margin-top:2px}.mobile-select{display:none}dialog{color:var(--foreground);background:var(--card);border:1px solid #3c4654;border-radius:12px;padding:24px;width:min(580px,calc(100% - 32px));max-height:85%;overflow:auto;box-shadow:0 20px 90px #0008}dialog::backdrop{background:#000a;backdrop-filter:blur(4px)}dialog h2{font-size:19px;letter-spacing:-.025em;font-weight:550;margin:5px 0 12px;line-height:1.4}dialog p{font-size:12px;line-height:1.85;color:var(--muted-foreground)}dialog .dialog-actions{display:flex;justify-content:flex-end;align-items:center;gap:9px;margin-top:20px}dialog textarea{width:100%;resize:vertical;min-height:116px;padding:12px;border-radius:7px;background:var(--background);border:1px solid var(--border);font:11px/1.7 var(--font-mono);color:#bbc9df;margin-top:14px}dialog ul{padding-left:18px;color:var(--muted-foreground);font-size:12px;line-height:2}#copy-status{font-size:11px;color:var(--success);margin-right:auto}.tech-label{font:10px var(--font-mono);color:var(--muted-foreground)}.bottom-bar{padding:16px 0 25px;border-top:1px solid var(--border);font-size:10px;color:#6d7887;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}@media(min-width:1700px){.workspace{grid-template-columns:235px minmax(0,1fr) 250px;gap:45px}}@media(max-width:1200px){.workspace{grid-template-columns:210px minmax(0,1fr);gap:28px}.notes-column{grid-column:2;position:static;padding-top:0;display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.notes-heading,.prototype-note{grid-column:1/-1}.note-card+.note-card{border:0;padding-top:0}}@media(max-width:760px){.shell{padding:0 18px}.appbar-inner{height:56px}.brand .optional{display:none}.pr-head{padding:24px 0}.workspace{display:block;padding-top:22px}.sidebar{display:none}.mobile-select{display:block;margin-bottom:21px;width:100%;padding:9px 12px;background:var(--card);border:1px solid var(--border);border-radius:7px;font-size:12px}.notes-column{display:block;margin-top:25px}.note-card+.note-card{border-top:1px solid var(--border);padding-top:18px}.diff-toolbar{align-items:flex-start;flex-direction:column;gap:9px}.diff-toolbar .segments{align-self:flex-end}.stop-footer{flex-wrap:wrap}.stop-title{font-size:24px}.code-caption{align-items:flex-start}.hide-small{display:none}}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+    #notes{grid-column:1/-1}
+    .note-item.active{background:#171e25;border-color:#2e3b49;color:var(--foreground)}
+    .note-item.active .bullet{border-color:var(--accent);color:var(--accent);background:#273449}
+    .note-item .rail-sub,.note-location{display:block}
+    .diff-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .code-caption{flex-wrap:wrap}.focus-range{font-size:11px;min-height:28px}
+    .stop-actions{display:flex;align-items:center;gap:8px}
+    #reset-settings{margin-right:16px;background:#991b1b;border-color:#b91c1c;color:#fff}#reset-settings:hover:not(:disabled){background:#b91c1c;border-color:#dc2626}
+    .source-details{display:grid;gap:5px;margin:9px 0 0;font-size:11px}.source-details>div{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px}.source-details dt{font-weight:600}.source-details dd{margin:0;color:#cad2df;overflow-wrap:anywhere}.source-details code{font-size:inherit;color:var(--accent)}
+    .copy-selection{display:flex;align-items:center;flex-wrap:wrap;gap:8px;min-width:0}.copy-status[data-state="copied"]{color:var(--success)}.copy-status[data-state="error"]{color:var(--warning)}
+    .layout-controls>.eyebrow{color:var(--foreground)}.rail button .bullet.read{color:var(--success);border-color:#3b654a;background:#14231b}.read-check{color:var(--success)}
+    button.diff-toolbar{width:100%;border:0;border-bottom:1px solid var(--border);color:inherit;text-align:left}button.diff-toolbar:hover{background:var(--muted)}button.diff-toolbar:focus-visible{outline-offset:-3px}.file-status{color:var(--accent)}.file-status[data-status="added"]{color:var(--success)}.file-status[data-status="removed"]{color:#e7a2a2}.collapse-indicator{color:var(--muted-foreground)}
+    .stats{display:inline-flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:11px;color:var(--muted-foreground)}.additions{color:var(--success)}.deletions{color:#e7a2a2}.rail-stats{display:flex;margin-top:6px;font-size:10px}.comparison-range{overflow-wrap:anywhere}.provenance{margin-top:10px;font-size:10px;color:var(--muted-foreground);overflow-wrap:anywhere}.provenance summary{cursor:pointer}.excerpt{margin-top:18px}.diff-view{min-height:100px;max-height:620px;overflow:auto}.diff-toolbar{flex-wrap:wrap}.file-name{flex:1}.file-path{overflow-wrap:anywhere}.diff-bottom{flex-wrap:wrap}.related-files{margin-top:25px;border-top:1px solid var(--border);padding-top:16px}.related-files h3{font-size:12px;margin:0 0 10px}.related-file{border:1px solid var(--border);border-radius:8px;background:var(--card);margin-top:8px;overflow:hidden}.related-file>summary{cursor:pointer;padding:12px;font-size:11px;overflow-wrap:anywhere}.related-file .reason{display:block;margin:5px 0;color:var(--muted-foreground)}.related-file .diff-card{border:0;border-top:1px solid var(--border);border-radius:0}.related-file>summary .stats{margin-left:8px}.source-status{padding:10px 13px;margin:0;font-size:11px;color:var(--warning)}.layout-controls{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 12px}.stop-stats{margin:0 0 12px}.file-glyph{flex-shrink:0}
+    :root{--surface:#101318;--toolbar:#15191f;--hover-border:#434d5a;--selection:#171e25;--selection-border:#2e3b49;--accent-bg:#273449;--summary:#a8b0bc;--source-text:#cad2df;--deletion:#e7a2a2;--success-bg:#14231b;--success-border:#3b654a;--warning-bg:#211c15;--warning-border:#57442c;--warning-text:#d9c8b0;--note-bg:#192436;--note-border:#34445e;--note-text:#bbd0f4;--action:#2563eb;--action-hover:#1d4ed8;--action-text:#fff;--subtle-text:#6d7887;--location-text:#647185;--segment-bg:#303947}
+    :root[data-theme="pierre-light"]{color-scheme:light;--background:#fff;--foreground:#24292f;--card:#f6f8fa;--muted:#eaeef2;--muted-foreground:#57606a;--border:#d0d7de;--primary:#1a7f37;--primary-foreground:#fff;--accent:#0550ae;--warning:#7d4e00;--success:#116329;--surface:#fff;--toolbar:#f6f8fa;--hover-border:#8c959f;--selection:#eaeef2;--selection-border:#8c959f;--accent-bg:#ddf4ff;--summary:#424a53;--source-text:#24292f;--deletion:#a40e26;--success-bg:#dafbe1;--success-border:#4d885a;--warning-bg:#fff8c5;--warning-border:#9a6700;--warning-text:#633c01;--note-bg:#ddf4ff;--note-border:#54aeff;--note-text:#0550ae;--action:#0550ae;--action-hover:#033d8b;--action-text:#fff;--subtle-text:#57606a;--location-text:#57606a;--segment-bg:#d0d7de}
+    :root[data-theme="tokyo-night"]{color-scheme:dark;--background:#1a1b26;--foreground:#c0caf5;--card:#1f2335;--muted:#292e42;--muted-foreground:#9aa5ce;--border:#414868;--primary:#9ece6a;--primary-foreground:#1a1b26;--accent:#7aa2f7;--warning:#e0af68;--success:#9ece6a;--surface:#1a1b26;--toolbar:#1f2335;--hover-border:#737aa2;--selection:#292e42;--selection-border:#565f89;--accent-bg:#283457;--summary:#a9b1d6;--source-text:#c0caf5;--deletion:#f7768e;--success-bg:#20372b;--success-border:#4d6a41;--warning-bg:#332b24;--warning-border:#806341;--warning-text:#e0af68;--note-bg:#283457;--note-border:#565f89;--note-text:#b4d4ff;--action:#7aa2f7;--action-hover:#89b4fa;--action-text:#1a1b26;--subtle-text:#9aa5ce;--location-text:#9aa5ce;--segment-bg:#414868}
+    :root[data-theme="nord"]{color-scheme:dark;--background:#2e3440;--foreground:#d8dee9;--card:#3b4252;--muted:#3b4252;--muted-foreground:#b5bfd0;--border:#4c566a;--primary:#a3be8c;--primary-foreground:#2e3440;--accent:#88c0d0;--warning:#ebcb8b;--success:#a3be8c;--surface:#2e3440;--toolbar:#3b4252;--hover-border:#81a1c1;--selection:#3b4252;--selection-border:#81a1c1;--accent-bg:#3b4252;--summary:#d8dee9;--source-text:#d8dee9;--deletion:#f0a1a8;--success-bg:#344338;--success-border:#a3be8c;--warning-bg:#443f36;--warning-border:#bda36f;--warning-text:#ebcb8b;--note-bg:#3b4252;--note-border:#81a1c1;--note-text:#d8dee9;--action:#88c0d0;--action-hover:#8fbcbb;--action-text:#2e3440;--subtle-text:#b5bfd0;--location-text:#b5bfd0;--segment-bg:#434c5e}
+    :root[data-theme="dracula"]{color-scheme:dark;--background:#282a36;--foreground:#f8f8f2;--card:#303341;--muted:#343746;--muted-foreground:#b0b6d8;--border:#626784;--primary:#50fa7b;--primary-foreground:#282a36;--accent:#bd93f9;--warning:#f1fa8c;--success:#50fa7b;--surface:#282a36;--toolbar:#303341;--hover-border:#bd93f9;--selection:#343746;--selection-border:#626784;--accent-bg:#343746;--summary:#f8f8f2;--source-text:#f8f8f2;--deletion:#ff8080;--success-bg:#283e35;--success-border:#50fa7b;--warning-bg:#44412f;--warning-border:#c5cd74;--warning-text:#f1fa8c;--note-bg:#343746;--note-border:#bd93f9;--note-text:#f8f8f2;--action:#bd93f9;--action-hover:#d1aaff;--action-text:#282a36;--subtle-text:#b0b6d8;--location-text:#b0b6d8;--segment-bg:#44475a}
+    :root[data-theme="catppuccin-mocha"]{color-scheme:dark;--background:#1e1e2e;--foreground:#cdd6f4;--card:#313244;--muted:#45475a;--muted-foreground:#bac2de;--border:#585b70;--primary:#a6e3a1;--primary-foreground:#1e1e2e;--accent:#89b4fa;--warning:#f9e2af;--success:#a6e3a1;--surface:#1e1e2e;--toolbar:#313244;--hover-border:#9399b2;--selection:#45475a;--selection-border:#7f849c;--accent-bg:#313244;--summary:#cdd6f4;--source-text:#cdd6f4;--deletion:#f5aac0;--success-bg:#283b34;--success-border:#a6e3a1;--warning-bg:#3b353b;--warning-border:#bba884;--warning-text:#f9e2af;--note-bg:#313244;--note-border:#7f849c;--note-text:#b4befe;--action:#89b4fa;--action-hover:#b4befe;--action-text:#1e1e2e;--subtle-text:#bac2de;--location-text:#bac2de;--segment-bg:#585b70}
+    :root[data-theme="gruvbox-light-medium"]{color-scheme:light;--background:#fbf1c7;--foreground:#3c3836;--card:#f2e5bc;--muted:#ebdbb2;--muted-foreground:#665c54;--border:#a89984;--primary:#356644;--primary-foreground:#fbf1c7;--accent:#076678;--warning:#8f3f00;--success:#356644;--surface:#fbf1c7;--toolbar:#f2e5bc;--hover-border:#7c6f64;--selection:#ebdbb2;--selection-border:#928374;--accent-bg:#e4e9c1;--summary:#504945;--source-text:#3c3836;--deletion:#9d0006;--success-bg:#e8e7b7;--success-border:#356644;--warning-bg:#f5e5ad;--warning-border:#af650a;--warning-text:#7c4a03;--note-bg:#e4e9c1;--note-border:#427b58;--note-text:#076678;--action:#076678;--action-hover:#04515f;--action-text:#fbf1c7;--subtle-text:#665c54;--location-text:#665c54;--segment-bg:#d5c4a1}
+    :root[data-theme="gruvbox-dark-medium"]{color-scheme:dark;--background:#282828;--foreground:#ebdbb2;--card:#32302f;--muted:#3c3836;--muted-foreground:#bdae93;--border:#665c54;--primary:#b8bb26;--primary-foreground:#282828;--accent:#83a598;--warning:#fabd2f;--success:#b8bb26;--surface:#282828;--toolbar:#32302f;--hover-border:#a89984;--selection:#3c3836;--selection-border:#928374;--accent-bg:#282828;--summary:#ebdbb2;--source-text:#ebdbb2;--deletion:#fb8173;--success-bg:#363e29;--success-border:#b8bb26;--warning-bg:#433a29;--warning-border:#b58a2b;--warning-text:#fabd2f;--note-bg:#32302f;--note-border:#83a598;--note-text:#ebdbb2;--action:#83a598;--action-hover:#a7c8ba;--action-text:#282828;--subtle-text:#bdae93;--location-text:#bdae93;--segment-bg:#504945}
+    :root[data-theme="gruvware-dark"]{color-scheme:dark;--background:#2a2928;--foreground:#d4be98;--card:#33302e;--muted:#3b3634;--muted-foreground:#b2a592;--border:#4c4641;--primary:#bac584;--primary-foreground:#2a2928;--accent:#d4a599;--warning:#e6d5ae;--success:#bac584;--surface:#2a2928;--toolbar:#33302e;--hover-border:#adb79d;--selection:#3b3634;--selection-border:#695e55;--accent-bg:#3b3634;--summary:#d4be98;--source-text:#d4be98;--deletion:#de9880;--success-bg:#373a20;--success-border:#b2ba8e;--warning-bg:#3b3634;--warning-border:#ca9a70;--warning-text:#e6d5ae;--note-bg:#3b3634;--note-border:#adb79d;--note-text:#d4be98;--action:#b2ba8e;--action-hover:#bac584;--action-text:#2a2928;--subtle-text:#b2a592;--location-text:#b2a592;--segment-bg:#4c4641}
+    :root[data-theme="gruvware-light"]{color-scheme:light;--background:#fbf1c7;--foreground:#3c3836;--card:#f2e5bc;--muted:#ebdbb2;--muted-foreground:#665c54;--border:#a89984;--primary:#545e2c;--primary-foreground:#fbf1c7;--accent:#8f3f71;--warning:#8f3f00;--success:#545e2c;--surface:#fbf1c7;--toolbar:#f2e5bc;--hover-border:#7c6f64;--selection:#ebdbb2;--selection-border:#928374;--accent-bg:#ebdbb2;--summary:#504945;--source-text:#3c3836;--deletion:#9d0006;--success-bg:#e8e7b7;--success-border:#545e2c;--warning-bg:#f5e6b3;--warning-border:#af650a;--warning-text:#7c4a03;--note-bg:#ebdbb2;--note-border:#8f3f71;--note-text:#8f3f71;--action:#8f3f71;--action-hover:#713056;--action-text:#fbf1c7;--subtle-text:#665c54;--location-text:#665c54;--segment-bg:#d5c4a1}
+    .theme-control{flex-shrink:0}.theme-control select{min-height:34px;width:166px;padding:6px 28px 6px 10px;border:1px solid var(--border);border-radius:7px;background-color:var(--card);color:var(--foreground);font-size:12px}.brand{min-width:0}.brand strong{white-space:nowrap}.brand .optional{color:var(--muted-foreground)}.divider{color:var(--muted-foreground)}
+    .btn:hover:not(:disabled){border-color:var(--hover-border)}.rail button[aria-current=step],.note-item.active{background:var(--selection);border-color:var(--selection-border)}.rail button[aria-current=step] .bullet,.note-item.active .bullet{background:var(--accent-bg)}.rail button .bullet.read,.badge.ready{background:var(--success-bg);border-color:var(--success-border)}.bullet{border-color:var(--hover-border)}
+    .stop-summary{color:var(--summary)}.attention{background:var(--warning-bg);border-color:var(--warning-border);color:var(--warning-text)}.diff-card{background:var(--surface)}.diff-toolbar{background:var(--toolbar)}.file-name,.source-details dd{color:var(--source-text)}.segments button[aria-pressed=true]{background:var(--segment-bg);color:var(--foreground)}.deletions,.file-status[data-status="removed"]{color:var(--deletion)}.note-location{color:var(--location-text)}.bottom-bar{color:var(--subtle-text)}
+    #next{background:var(--action);border-color:var(--action);color:var(--action-text)}#next:hover{background:var(--action-hover);border-color:var(--action-hover)}
+    .rail-title{color:var(--foreground)}.stop-meta{margin-bottom:24px}.stop-title{font-size:clamp(20px,1.8vw,24px);margin-bottom:16px}.stop-summary{margin-bottom:28px}.stop-stats,.layout-controls{margin-bottom:20px}.attention{margin-bottom:24px}.excerpt{margin-top:24px}.code-caption{margin-bottom:12px}.related-files{margin-top:32px;padding-top:24px}.related-files h3{margin-bottom:16px}.stop-footer{margin-top:32px;padding-top:24px}
+  </style>
+</head>
+<body data-template="visual-changes" data-content-kind="fictional-example">
+  <header class="appbar" aria-label="Visual Changes" data-component="app-header">
+    <div class="shell appbar-inner">
+      <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="#F05032"
+              role="img"
+              aria-label="Git"
+            >
+              <path d="M23.546 10.93L13.067.452a1.55 1.55 0 0 0-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 0 1 2.327 2.341l2.658 2.66a1.838 1.838 0 0 1 1.9 3.039a1.837 1.837 0 0 1-2.6 0a1.85 1.85 0 0 1-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348a1.85 1.85 0 0 1 0 2.6a1.844 1.844 0 0 1-2.609 0a1.834 1.834 0 0 1 0-2.598c.182-.18.387-.316.605-.406V8.835a1.834 1.834 0 0 1-.996-2.41L7.636 3.7L.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477a1.545 1.545 0 0 0 2.186 0l10.43-10.43a1.544 1.544 0 0 0 0-2.187"/>
+            </svg>
+          </span>
+       <strong>Visual Changes</strong><span class="divider" aria-hidden="true">•</span><span class="text-gray-400 optional" data-field="repository-name">Repository</span></div>
+       <div class="theme-control"><label class="sr-only" for="theme-select">Theme</label><select id="theme-select" data-action="set-theme"><option value="gruvware-dark">Gruvware Dark</option><option value="gruvware-light">Gruvware Light</option><option value="pierre-dark">Pierre Dark</option><option value="pierre-light">Pierre Light</option><option value="tokyo-night">Tokyo Night</option><option value="nord">Nord</option><option value="dracula">Dracula</option><option value="catppuccin-mocha">Catppuccin Mocha</option><option value="gruvbox-light-medium">Gruvbox Light</option><option value="gruvbox-dark-medium">Gruvbox Dark</option></select></div>
+    </div>
+  </header>
+  <div class="shell">
+    <!-- Comparison content is populated from the inert tour-data JSON below. -->
+    <section class="pr-head" aria-labelledby="change-title" aria-describedby="change-metadata" data-component="change-summary" data-change-kind="pull-request">
+      <div class="eyebrow" hidden><span data-field="comparison-kind">Comparison</span> <a target="_blank" rel="noopener noreferrer" data-field="change-link"></a></div>
+      <h1 id="change-title" data-field="change-title">Loading change…</h1>
+      <p class="error" data-field="tour-error" role="alert" hidden></p>
+      <div class="pr-meta" id="change-metadata">
+          <span class="badge ready" data-field="change-status">Comparison</span>
+          <span class="mono comparison-range" data-field="comparison-range"></span>
+          <span aria-hidden="true">·</span>
+          <span data-field="changed-file-count">Files</span>
+          <span class="additions" data-field="change-additions"></span><span class="deletions" data-field="change-deletions"></span><span data-field="stats-unavailable"></span>
+        </div>
+      <details class="provenance" data-component="comparison-provenance"><summary>Source details</summary><dl class="source-details" data-field="comparison-pins"><div><dt>Before:</dt><dd data-field="source-before"></dd></div><div><dt>After:</dt><dd data-field="source-after"></dd></div><div data-field="captured-row" hidden><dt>Captured:</dt><dd><time data-field="source-captured"></time></dd></div></dl></details>
+    </section>
+    <div class="workspace">
+      <aside class="sidebar" aria-labelledby="guide-title" data-component="tour-navigation">
+        <div class="rail-top"><h2 class="eyebrow" id="guide-title">Reading guide</h2><span id="rail-count" role="status" aria-atomic="true" data-field="manual-read-count">0 read</span></div>
+        <nav aria-label="Guided tour stops"><ol class="rail" id="rail" data-component="stops-list"></ol></nav>
+        <!-- Progress reflects explicitly marked read stops, not navigation position. -->
+        <div class="rail-footer"><p id="progress-label" style="margin:0 0 9px">Progress</p><div class="progress-track" role="progressbar" aria-labelledby="progress-label" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-valuetext="Loading tour" data-progress-kind="manual-read" id="progress"><div class="progress-fill" id="progress-fill" aria-hidden="true"></div></div></div>
+      </aside>
+      <main class="main" id="tour" aria-labelledby="stop-title" aria-describedby="stop-summary" data-component="active-stop">
+        <label class="sr-only" for="mobile-stop">Go to tour stop</label><select id="mobile-stop" class="mobile-select" aria-controls="tour" data-action="go-to-stop"></select>
+        <div class="stop-meta"><p id="stop-position" data-field="stop-position">Loading tour</p><div class="stop-actions"><button type="button" id="reset-settings" class="btn" aria-controls="tour rail progress" data-action="reset-settings"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 14-5-5 5-5M4 9h9a7 7 0 0 1 0 14"/></svg>Reset guide</button><button type="button" id="previous-icon" class="btn icon" aria-label="Previous stop" aria-controls="tour" aria-keyshortcuts="k" data-action="previous-stop">↑</button><button type="button" id="next-icon" class="btn icon" aria-label="Next stop" aria-controls="tour" aria-keyshortcuts="j" data-action="next-stop">↓</button></div></div>
+        <h2 id="stop-title" class="stop-title" tabindex="-1" data-field="stop-title">Loading stop…</h2>
+        <p id="stop-summary" class="stop-summary" data-field="stop-summary"></p>
+        <p class="stats stop-stats" data-field="stop-stats"></p>
+        <div id="attention" class="attention" role="note" aria-labelledby="attention-title" aria-describedby="attention-body" data-component="maintainer-decision" hidden><strong id="attention-title">A contract to check</strong><span id="attention-body"></span></div>
+        <div class="layout-controls"><span class="eyebrow">Important code changes</span><div class="diff-controls"><button type="button" id="collapse-all-diffs" class="btn" aria-expanded="true" aria-controls="excerpts related-files" data-action="toggle-all-diffs">Collapse all diffs</button><div class="segments" role="group" aria-label="Diff layout"><button type="button" id="unified" aria-pressed="true" aria-controls="excerpts related-files" data-action="set-diff-layout" data-layout="unified">Unified</button><button type="button" id="split" aria-pressed="false" aria-controls="excerpts related-files" data-action="set-diff-layout" data-layout="split">Split</button></div><div class="segments" role="group" aria-label="Line wrapping"><button type="button" id="wrap" aria-pressed="false" aria-controls="excerpts related-files" data-action="set-overflow" data-overflow="wrap">Wrap</button><button type="button" id="no-wrap" aria-pressed="true" aria-controls="excerpts related-files" data-action="set-overflow" data-overflow="scroll">No-Wrap</button></div></div></div>
+        <div id="excerpts" data-component="stop-excerpts"></div>
+        <section id="related-files" class="related-files" data-component="related-files" aria-labelledby="related-title" hidden><h3 id="related-title">Also in this stop</h3><div id="related-list"></div></section>
+        <footer class="stop-footer"><button type="button" id="mark-read" class="btn" aria-pressed="false" aria-controls="rail rail-count" aria-describedby="stop-position" data-action="toggle-read"><span class="read-check" aria-hidden="true">✓</span><span data-field="read-label">Mark as read</span></button><div class="flex items-center gap-2"><button type="button" id="previous" class="btn ghost" aria-controls="tour" aria-keyshortcuts="k" data-action="previous-stop">← Previous</button><button type="button" id="next" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" aria-controls="tour" aria-keyshortcuts="j" data-action="next-stop">Next →</button></div></footer>
+      </main>
+      <aside class="notes-column" aria-labelledby="notes-heading" data-component="source-notes"><div class="notes-heading"><span id="notes-heading">Notes on this stop</span><span id="note-count" data-field="note-count">Notes</span></div><ol id="notes" class="rail" aria-labelledby="notes-heading"></ol></aside>
+    </div>
+    <footer class="bottom-bar" aria-label="Rendering dependencies" data-component="engine-status"><span id="engine-status" role="status" aria-atomic="true" data-state="loading">Flowbite 3.1.2 CSS · @pierre/diffs: loading from CDN...</span><span id="storage-status" role="status" hidden>Preferences cannot be saved in this browser.</span></footer>
+  </div>
+
+  <noscript><p style="padding:30px;color:var(--warning)">This tour needs JavaScript to load its CDN renderer and controls.</p></noscript>
+
+  <template id="diff-card-template">
+    <section class="diff-card" data-component="source-diff">
+      <button type="button" class="diff-toolbar" data-action="collapse-diff" aria-expanded="false"><span class="file-name"><span class="file-glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span class="file-path" data-field="source-path"></span><span class="badge file-status" data-field="file-status"></span></span><span class="stats" data-field="file-stats"></span><span class="collapse-indicator" aria-hidden="true">▸</span></button>
+      <div class="diff-body">
+      <!-- Pierre owns the code DOM inside a shadow root; annotation buttons retain source metadata. -->
+      <div class="diff-view" data-renderer="pierre-diffs"></div>
+      <p class="source-status" data-field="source-status" hidden></p>
+      <div class="diff-bottom"><span class="copy-selection" data-field="source-selection"><span data-field="selection-hint" aria-live="polite" aria-atomic="true">Drag over line numbers to select code.</span><button type="button" class="btn" data-action="copy-selection" aria-live="polite" aria-atomic="true" hidden><span>Copy selected <span data-field="copy-side"></span> <span data-field="copy-range"></span></span></button><span class="copy-status" data-field="copy-status" role="status" aria-live="polite" aria-atomic="true"></span></span><div class="segments" role="group" aria-label="File context"><button type="button" data-action="set-context" data-context="full" aria-pressed="false">Full file</button><button type="button" data-action="set-context" data-context="hunks" aria-pressed="true">Hunks</button></div></div>
+      </div>
+    </section>
+  </template>
+
+  <script id="tour-data" type="application/json">
+  {
+    "comparison": {"repository":"demo/webhooks","kind":"pull-request","number":128,"title":"Keep delivery identity stable across retries","url":"https://example.com/demo/webhooks/pull/128","status":"Fictional example","headRef":"feat/stable-delivery","baseRef":"main","mergeBase":"1111111111111111111111111111111111111111","head":"2222222222222222222222222222222222222222"},
+    "files": [
+      {"path":"src/webhooks/contracts.ts","status":"modified","additions":1,"deletions":0,"source":{"old":"export type DeliveryRequest = {\n  url: string;\n  payload: unknown;\n};\n\nexport type DeliveryResult = {\n  status: number;\n};\n\nexport type DeliveryState = \"pending\" | \"sent\" | \"failed\";\n\nexport type DeliveryLog = {\n  deliveryId: string;\n  attempt: number;\n  status: number;\n  recordedAt: string;\n};\n\nexport const DEFAULT_TIMEOUT_MS = 5_000;\nexport const MAX_PAYLOAD_BYTES = 256_000;\n","next":"export type DeliveryRequest = {\n  url: string;\n  payload: unknown;\n  idempotencyKey: string;\n};\n\nexport type DeliveryResult = {\n  status: number;\n};\n\nexport type DeliveryState = \"pending\" | \"sent\" | \"failed\";\n\nexport type DeliveryLog = {\n  deliveryId: string;\n  attempt: number;\n  status: number;\n  recordedAt: string;\n};\n\nexport const DEFAULT_TIMEOUT_MS = 5_000;\nexport const MAX_PAYLOAD_BYTES = 256_000;\n"}},
+      {"path":"src/webhooks/dispatch.ts","status":"modified","additions":17,"deletions":5,"source":{"old":"export async function dispatch(request, send, pause) {\n  const response = await send(request.url, {\n    method: \"POST\",\n    body: JSON.stringify(request.payload),\n  });\n  return { status: response.status };\n}\n","next":"export async function dispatch(request, send, pause) {\n  const body = JSON.stringify(request.payload);\n  const headers = {\n    \"Idempotency-Key\": request.idempotencyKey,\n  };\n\n  for (let attempt = 0; attempt < 3; attempt++) {\n    const response = await send(request.url, {\n      method: \"POST\", body, headers,\n    });\n    const transient = response.status === 429 ||\n      response.status >= 500;\n\n    if (!transient || attempt === 2) {\n      return { status: response.status };\n    }\n    await pause(250 * 2 ** attempt);\n  }\n}\n"}},
+      {"path":"src/webhooks/worker.ts","status":"modified","additions":1,"deletions":1,"source":{"old":"export async function handleDelivery(delivery, deps) {\n  return deps.dispatch({\n    url: delivery.targetUrl,\n    payload: delivery.payload,\n    idempotencyKey: crypto.randomUUID(),\n  });\n}\n","next":"export async function handleDelivery(delivery, deps) {\n  return deps.dispatch({\n    url: delivery.targetUrl,\n    payload: delivery.payload,\n    idempotencyKey: \"delivery:\" + delivery.id,\n  });\n}\n"}},
+      {"path":"test/delivery.test.ts","status":"modified","additions":22,"deletions":4,"source":{"old":"test(\"delivers a webhook\", async () => {\n  const send = mock(async () => ({ status: 200 }));\n  const result = await dispatch(request, send, noWait);\n  expect(result.status).toBe(200);\n});\n","next":"test(\"retry preserves the delivery key\", async () => {\n  const keys = [];\n  const send = async (_url, options) => {\n    keys.push(options.headers[\"Idempotency-Key\"]);\n    return { status: keys.length === 1 ? 503 : 200 };\n  };\n  await dispatch(request, send, async () => {});\n  expect(keys).toEqual([\n    request.idempotencyKey, request.idempotencyKey,\n  ]);\n});\n\ntest(\"queue replay preserves the delivery key\", async () => {\n  const keys = [];\n  const deps = { dispatch: async (request) => {\n    keys.push(request.idempotencyKey);\n  }};\n  await handleDelivery(delivery, deps);\n  await handleDelivery(delivery, deps);\n  expect(keys).toEqual([\n    \"delivery:\" + delivery.id, \"delivery:\" + delivery.id,\n  ]);\n});\n"}},
+      {"path":"docs/webhooks.md","status":"added","additions":3,"deletions":0,"source":{"old":null,"next":"# Webhook delivery\n\nReceivers must honor Idempotency-Key to deduplicate retries.\n"}}
+    ],
+    "stops": [
+      {"id":"identity","category":"The contract","title":"Give every delivery a stable identity","shortTitle":"A stable delivery identity","subline":"contracts.ts · one new field","summary":"Before this change, a delivery was just a URL and a payload. Now the caller supplies an idempotency key that survives every attempt. That moves the definition of ‘the same delivery’ out of the retry loop and into the contract.","attention":null,"excerpts":[{"id":"contract","path":"src/webhooks/contracts.ts","side":"new","start":1,"end":5,"caption":"The request shape owns the identity, not the transport."}],"relatedFiles":[],"notes":[{"excerptId":"contract","side":"new","line":4,"title":"Identity belongs to the caller","body":"The caller knows which business event this is. A random key created inside each network attempt would make every retry look like a new event."},{"excerptId":"contract","side":"new","line":4,"title":"One field, two boundaries","body":"This key crosses both the worker → dispatcher boundary and the dispatcher → receiver boundary. The next two stops show those connections."}]},
+      {"id":"retry-policy","category":"The service","title":"Retry the failure, not the side effect","shortTitle":"A bounded retry policy","subline":"dispatch.ts · the behavior","summary":"The dispatcher used to send once and return whatever came back. It now retries 429 and 5xx responses using the same request body and key. Other responses return immediately, and the last attempt returns its actual status.","attention":"The receiver must honor Idempotency-Key. This provides a stable identity for retries, not an exactly-once guarantee. Network exceptions and Retry-After handling are outside this fictional example.","excerpts":[{"id":"dispatch","path":"src/webhooks/dispatch.ts","side":"new","start":1,"end":19,"caption":"The attempt changes. The delivery identity does not."}],"relatedFiles":[{"path":"docs/webhooks.md","reason":"Document the receiver's deduplication responsibility."}],"notes":[{"excerptId":"dispatch","side":"new","line":4,"title":"A retry is still the same request","body":"Every attempt carries the caller’s key. If the receiver processed an earlier attempt, it can return its cached result instead of repeating the side effect."},{"excerptId":"dispatch","side":"new","line":14,"title":"The budget is explicit","body":"Three attempts total, not three retries after the first send. Exhaustion returns the last HTTP status so the worker can decide what happens next."}]},
+      {"id":"worker","category":"The caller","title":"Make a replay reuse the original key","shortTitle":"Replays keep their identity","subline":"worker.ts · connect the pieces","summary":"The worker already receives a durable delivery record. It now derives the key from delivery.id instead of creating a fresh key each time. An HTTP retry and a later queue replay identify the same business operation.","attention":null,"excerpts":[{"id":"worker","path":"src/webhooks/worker.ts","side":"new","start":1,"end":7,"caption":"The durable record survives longer than any one worker process."}],"relatedFiles":[],"notes":[{"excerptId":"worker","side":"new","line":5,"title":"A queue replay is not a new event","body":"Restarting the worker does not replace the delivery record’s ID. This extends the same identity across process restarts, not just across a loop."}]},
+      {"id":"proof","category":"The proof","title":"Show that the identity survives both paths","shortTitle":"Prove the two boundaries","subline":"delivery.test.ts · behavior, not wiring","summary":"The test checks that a transient failure causes another attempt with the same key, then separately checks that replaying a delivery record preserves its identity. Time is injected, so the test does not actually wait.","attention":null,"excerpts":[{"id":"proof","path":"test/delivery.test.ts","side":"new","start":1,"end":23,"caption":"Two small checks for two places that could accidentally mint a new identity."}],"relatedFiles":[],"notes":[{"excerptId":"proof","side":"new","line":9,"title":"Assert what makes retries safe","body":"A 200 alone would still pass if every attempt silently changed its key."},{"excerptId":"proof","side":"new","line":19,"title":"A new invocation is a different seam","body":"The second test crosses the worker boundary twice. It guards queue replay, which an HTTP-loop test cannot establish."}]}
+    ]
+  }
+  </script>
+  <!-- Gruvware: ovi-ispas/diff2html@805d86760c3f7dd0acccb2b0c16059d904b30cfa, src/themes; preserve the original TextMate rules. -->
+  <script id="custom-themes" type="application/json">
+  {
+    "gruvware-dark": {
+      "name":"gruvware-dark","type":"dark","bg":"#2a2928","fg":"#d4be98",
+      "colors":{"editor.background":"#2a2928","editor.foreground":"#d4be98","editorLineNumber.foreground":"#695e55","editorCursor.foreground":"#e6d5ae","editor.selectionBackground":"#3b3634","editor.lineHighlightBackground":"#33302e","gitDecoration.addedResourceForeground":"#add400","gitDecoration.deletedResourceForeground":"#545e2c","gitDecoration.modifiedResourceForeground":"#b2ba8e"},
+      "settings":[
+        {"settings":{"foreground":"#d4be98","background":"#2a2928"}},
+        {"scope":["comment","punctuation.definition.comment","comment.block","comment.line","comment.block.documentation","comment.line.documentation","meta.documentation","punctuation.definition.documentation"],"settings":{"foreground":"#7c6f64"}},
+        {"scope":["string","punctuation.definition.string","string.quoted","string.template"],"settings":{"foreground":"#bac584"}},
+        {"scope":["constant.numeric","constant.numeric.integer","constant.numeric.float","constant.numeric.hex","constant.language.boolean","constant.language.null","constant.language.undefined","constant.language.nan","constant.language.infinity"],"settings":{"foreground":"#de9880"}},
+        {"scope":["constant.character.escape","constant.other.escape","string.regexp","string.quoted.other.literal","string.other.link","string.other.path","string.other.url","punctuation.definition.string.begin","punctuation.definition.string.end"],"settings":{"foreground":"#d4be98"}},
+        {"scope":["variable.other.constant","support.constant","constant.other","entity.name.constant","meta.definition.variable.constant","meta.enum","meta.enum constant.other"],"settings":{"foreground":"#d6b37b"}},
+        {"scope":["variable","variable.other","variable.parameter","variable.language","identifier","meta.definition.variable","keyword.operator.new","keyword.other.new","support.function.constructor","meta.instance.constructor"],"settings":{"foreground":"#d6b37b"}},
+        {"scope":["variable.other.property","variable.other.member","support.variable.property","support.variable"],"settings":{"foreground":"#d4be98"}},
+        {"scope":["keyword","keyword.control","keyword.control.conditional","keyword.control.loop","keyword.operator","keyword.other","storage.modifier","storage","storage.type"],"settings":{"foreground":"#d4be98"}},
+        {"scope":["keyword.control.import","keyword.control.export","keyword.control.from","keyword.control.using","keyword.control.directive","keyword.control.flow","storage.modifier.async","meta.preprocessor","keyword.other.directive","punctuation.definition.directive"],"settings":{"foreground":"#d4a599"}},
+        {"scope":["entity.name.function","entity.name.function.member","entity.name.function.method","support.function","support.function.any-method","support.function.builtin","variable.function","meta.function-call entity.name.function","meta.function-call variable.function","meta.method-call entity.name.function","meta.method-call variable.function","meta.function-call support.function","meta.method-call support.function"],"settings":{"foreground":"#b2ba8e"}},
+        {"scope":["meta.function entity.name.function","meta.function.declaration entity.name.function","meta.function.definition entity.name.function","meta.function.expression entity.name.function","meta.method entity.name.function","meta.definition.method entity.name.function","meta.class meta.method entity.name.function","meta.class meta.definition.method entity.name.function"],"settings":{"foreground":"#adb79d","fontStyle":"bold"}},
+        {"scope":["meta.decorator","meta.annotation","punctuation.definition.decorator","entity.name.function.decorator"],"settings":{"foreground":"#adb79d","fontStyle":"bold"}},
+        {"scope":["entity.name.type","support.type","support.class","entity.name.class","entity.name.struct","entity.name.interface","entity.name.enum","meta.type"],"settings":{"foreground":"#e6d5ae"}},
+        {"scope":["support","support.other","meta.interpolation","punctuation.section.interpolation","punctuation.definition.interpolation","punctuation.special"],"settings":{"foreground":"#b2ba8e"}},
+        {"scope":["punctuation.separator","punctuation.terminator","punctuation.definition.parameters","punctuation.definition.arguments","punctuation.definition.array","punctuation.definition.object","punctuation.definition.block","punctuation.definition.tag","punctuation.definition.template-expression","meta.brace"],"settings":{"foreground":"#ca9a70"}},
+        {"scope":["punctuation.section.group.begin","punctuation.section.group.end","punctuation.section.brackets.begin","punctuation.section.brackets.end","punctuation.section.block.begin","punctuation.section.block.end"],"settings":{"foreground":"#d6b37b"}},
+        {"scope":["heading.1.markdown"],"settings":{"foreground":"#d4a599","fontStyle":"bold"}},
+        {"scope":["heading.2.markdown"],"settings":{"foreground":"#eead83","fontStyle":"bold"}},
+        {"scope":["heading.3.markdown"],"settings":{"foreground":"#de9880","fontStyle":"bold"}},
+        {"scope":["heading.4.markdown"],"settings":{"foreground":"#d6b37b","fontStyle":"bold"}},
+        {"scope":["heading.5.markdown"],"settings":{"foreground":"#d6b37b","fontStyle":"bold"}},
+        {"scope":["heading.6.markdown"],"settings":{"foreground":"#d6b37b","fontStyle":"bold"}},
+        {"scope":["markup.bold.markdown","punctuation.definition.bold.markdown"],"settings":{"fontStyle":"bold"}},
+        {"scope":["markup.italic.markdown","punctuation.definition.italic.markdown"],"settings":{"fontStyle":"italic"}},
+        {"scope":["markup.strikethrough.markdown","punctuation.definition.strikethrough.markdown"],"settings":{"fontStyle":"strikethrough"}},
+        {"scope":["markup.inline.raw.string.markdown","punctuation.definition.raw.markdown"],"settings":{"foreground":"#bac584","background":"#3b3634"}},
+        {"scope":["markup.fenced_code.block.markdown"],"settings":{"background":"#3b3634"}},
+        {"scope":["punctuation.definition.markdown","fenced_code.block.language.markdown"],"settings":{"foreground":"#d4be98","background":"#3b3634"}},
+        {"scope":["punctuation.definition.list.begin.markdown"],"settings":{"foreground":"#ca9a70"}},
+        {"scope":["punctuation.definition.quote.begin.markdown"],"settings":{"foreground":"#4c4641"}},
+        {"scope":["markup.quote.markdown"],"settings":{"foreground":"#695e55"}},
+        {"scope":["markup.table.markdown"],"settings":{"foreground":"#695e55"}},
+        {"scope":["punctuation.separator.table.markdown"],"settings":{"foreground":"#4c4641"}},
+        {"scope":["string.other.link.title.markdown","markup.underline.link.markdown"],"settings":{"foreground":"#adb79d"}},
+        {"scope":["entity.name.tag"],"settings":{"foreground":"#d4be98"}},
+        {"scope":["support.class.component"],"settings":{"foreground":"#ca9a70"}},
+        {"scope":["entity.other.attribute-name","meta.attribute"],"settings":{"foreground":"#d4be98"}},
+        {"scope":["markup.inserted","meta.diff.header.to-file"],"settings":{"foreground":"NONE","background":"#51592a"}},
+        {"scope":["markup.deleted","meta.diff.header.from-file"],"settings":{"foreground":"#695e55","background":"#373a20"}},
+        {"scope":["markup.changed"],"settings":{"foreground":"#695e55","background":"#414526"}},
+        {"scope":["invalid","invalid.illegal"],"settings":{"foreground":"#2a2928","background":"#ea6962"}}
+      ]
+    },
+    "gruvware-light": {
+      "name":"gruvware-light","type":"light","bg":"#fbf1c7","fg":"#3c3836",
+      "colors":{"editor.background":"#fbf1c7","editor.foreground":"#3c3836","editorLineNumber.foreground":"#7c6f64","editorCursor.foreground":"#282828","editor.selectionBackground":"#ebdbb2","editor.lineHighlightBackground":"#f2e5bc","gitDecoration.addedResourceForeground":"#add400","gitDecoration.deletedResourceForeground":"#545e2c","gitDecoration.modifiedResourceForeground":"#b2ba8e"},
+      "settings":[
+        {"settings":{"foreground":"#3c3836","background":"#fbf1c7"}},
+        {"scope":["comment","punctuation.definition.comment","comment.block","comment.line","comment.block.documentation","comment.line.documentation","meta.documentation","punctuation.definition.documentation"],"settings":{"foreground":"#928374"}},
+        {"scope":["string","punctuation.definition.string","string.quoted","string.template"],"settings":{"foreground":"#79740e"}},
+        {"scope":["constant.numeric","constant.numeric.integer","constant.numeric.float","constant.numeric.hex","constant.language.boolean","constant.language.null","constant.language.undefined","constant.language.nan","constant.language.infinity"],"settings":{"foreground":"#af3a03"}},
+        {"scope":["constant.character.escape","constant.other.escape","string.regexp","string.quoted.other.literal","string.other.link","string.other.path","string.other.url","punctuation.definition.string.begin","punctuation.definition.string.end"],"settings":{"foreground":"#3c3836"}},
+        {"scope":["variable.other.constant","support.constant","constant.other","entity.name.constant","meta.definition.variable.constant","meta.enum","meta.enum constant.other"],"settings":{"foreground":"#b57614"}},
+        {"scope":["variable","variable.other","variable.parameter","variable.language","identifier","meta.definition.variable","keyword.operator.new","keyword.other.new","support.function.constructor","meta.instance.constructor"],"settings":{"foreground":"#b57614"}},
+        {"scope":["variable.other.property","variable.other.member","support.variable.property","support.variable"],"settings":{"foreground":"#3c3836"}},
+        {"scope":["keyword","keyword.control","keyword.control.conditional","keyword.control.loop","keyword.operator","keyword.other","storage.modifier","storage","storage.type"],"settings":{"foreground":"#9d0006"}},
+        {"scope":["keyword.control.import","keyword.control.export","keyword.control.from","keyword.control.using","keyword.control.directive","keyword.control.flow","storage.modifier.async","meta.preprocessor","keyword.other.directive","punctuation.definition.directive"],"settings":{"foreground":"#8f3f71"}},
+        {"scope":["entity.name.function","entity.name.function.member","entity.name.function.method","support.function","support.function.any-method","support.function.builtin","variable.function","meta.function-call entity.name.function","meta.function-call variable.function","meta.method-call entity.name.function","meta.method-call variable.function","meta.function-call support.function","meta.method-call support.function"],"settings":{"foreground":"#076678"}},
+        {"scope":["meta.function entity.name.function","meta.function.declaration entity.name.function","meta.function.definition entity.name.function","meta.function.expression entity.name.function","meta.method entity.name.function","meta.definition.method entity.name.function","meta.class meta.method entity.name.function","meta.class meta.definition.method entity.name.function"],"settings":{"foreground":"#076678","fontStyle":"bold"}},
+        {"scope":["meta.decorator","meta.annotation","punctuation.definition.decorator","entity.name.function.decorator"],"settings":{"foreground":"#076678","fontStyle":"bold"}},
+        {"scope":["entity.name.type","support.type","support.class","entity.name.class","entity.name.struct","entity.name.interface","entity.name.enum","meta.type"],"settings":{"foreground":"#427b58"}},
+        {"scope":["support","support.other","meta.interpolation","punctuation.section.interpolation","punctuation.definition.interpolation","punctuation.special"],"settings":{"foreground":"#427b58"}},
+        {"scope":["punctuation.separator","punctuation.terminator","punctuation.definition.parameters","punctuation.definition.arguments","punctuation.definition.array","punctuation.definition.object","punctuation.definition.block","punctuation.definition.tag","punctuation.definition.template-expression","meta.brace"],"settings":{"foreground":"#7c6f64"}},
+        {"scope":["punctuation.section.group.begin","punctuation.section.group.end","punctuation.section.brackets.begin","punctuation.section.brackets.end","punctuation.section.block.begin","punctuation.section.block.end"],"settings":{"foreground":"#b57614"}},
+        {"scope":["heading.1.markdown"],"settings":{"foreground":"#9d0006","fontStyle":"bold"}},
+        {"scope":["heading.2.markdown"],"settings":{"foreground":"#af3a03","fontStyle":"bold"}},
+        {"scope":["heading.3.markdown"],"settings":{"foreground":"#b57614","fontStyle":"bold"}},
+        {"scope":["heading.4.markdown"],"settings":{"foreground":"#076678","fontStyle":"bold"}},
+        {"scope":["heading.5.markdown"],"settings":{"foreground":"#076678","fontStyle":"bold"}},
+        {"scope":["heading.6.markdown"],"settings":{"foreground":"#076678","fontStyle":"bold"}},
+        {"scope":["markup.bold.markdown","punctuation.definition.bold.markdown"],"settings":{"fontStyle":"bold"}},
+        {"scope":["markup.italic.markdown","punctuation.definition.italic.markdown"],"settings":{"fontStyle":"italic"}},
+        {"scope":["markup.strikethrough.markdown","punctuation.definition.strikethrough.markdown"],"settings":{"fontStyle":"strikethrough"}},
+        {"scope":["markup.inline.raw.string.markdown","punctuation.definition.raw.markdown"],"settings":{"foreground":"#79740e","background":"#ebdbb2"}},
+        {"scope":["markup.fenced_code.block.markdown"],"settings":{"background":"#ebdbb2"}},
+        {"scope":["punctuation.definition.markdown","fenced_code.block.language.markdown"],"settings":{"foreground":"#3c3836","background":"#ebdbb2"}},
+        {"scope":["punctuation.definition.list.begin.markdown"],"settings":{"foreground":"#7c6f64"}},
+        {"scope":["punctuation.definition.quote.begin.markdown"],"settings":{"foreground":"#d5c4a1"}},
+        {"scope":["markup.quote.markdown"],"settings":{"foreground":"#7c6f64"}},
+        {"scope":["markup.table.markdown"],"settings":{"foreground":"#7c6f64"}},
+        {"scope":["punctuation.separator.table.markdown"],"settings":{"foreground":"#d5c4a1"}},
+        {"scope":["string.other.link.title.markdown","markup.underline.link.markdown"],"settings":{"foreground":"#076678"}},
+        {"scope":["entity.name.tag"],"settings":{"foreground":"#9d0006"}},
+        {"scope":["support.class.component"],"settings":{"foreground":"#b57614"}},
+        {"scope":["entity.other.attribute-name","meta.attribute"],"settings":{"foreground":"#427b58"}},
+        {"scope":["markup.inserted","meta.diff.header.to-file"],"settings":{"foreground":"NONE","background":"#d5f5d0"}},
+        {"scope":["markup.deleted","meta.diff.header.from-file"],"settings":{"foreground":"#7c6f64","background":"#f7d0d0"}},
+        {"scope":["markup.changed"],"settings":{"foreground":"#7c6f64","background":"#f5e6b3"}},
+        {"scope":["invalid","invalid.illegal"],"settings":{"foreground":"#fbf1c7","background":"#cc241d"}}
+      ]
+    }
+  }
+  </script>
+  <script type="module">
+    async function startTour() {
+    const { comparison, files, stops } = JSON.parse(document.getElementById("tour-data").textContent);
+    const $ = (id) => document.getElementById(id);
+    const field = (name) => document.querySelector(`[data-field="${name}"]`);
+    const require = (condition, message) => { if (!condition) throw new Error(message); };
+    const text = (value) => typeof value === "string" && value.length > 0;
+    const validId = (value) => typeof value === "string" && /^[a-z][a-z0-9-]*$/.test(value);
+    const lineCount = (value) => value ? value.split("\n").length - Number(value.endsWith("\n")) : 0;
+    require(comparison && text(comparison.repository) && text(comparison.title), "Comparison title and repository are required.");
+    require(Array.isArray(files) && files.length > 0 && Array.isArray(stops) && stops.length > 0, "At least one changed file and stop are required.");
+    if (comparison.url) require(["https:", "http:"].includes(new URL(comparison.url).protocol), "Comparison link must use HTTP or HTTPS.");
+    const byPath = new Map();
+    for (const file of files) {
+      require(text(file.path) && !byPath.has(file.path), `Missing or duplicate source path: ${file.path}`);
+      require(["added", "removed", "modified", "renamed", "changed", "copied"].includes(file.status), `Invalid source status: ${file.path}`);
+      for (const key of ["additions", "deletions"]) require(file[key] == null || Number.isSafeInteger(file[key]) && file[key] >= 0, `Invalid ${key}: ${file.path}`);
+      if (file.source) {
+        const { old, next } = file.source;
+        require((typeof old === "string" || old === null) && (typeof next === "string" || next === null) && !(old === null && next === null), `Incomplete source pair: ${file.path}`);
+        require((old === null) === (file.status === "added") && (next === null) === (file.status === "removed"), `Absent side does not match source status: ${file.path}`);
+      } else require(text(file.unavailableReason), `Missing source must explain its unavailability: ${file.path}`);
+      if (file.status === "renamed") require(text(file.previousPath), `Renamed source needs its previous path: ${file.path}`);
+      byPath.set(file.path, file);
+    }
+    const stopIds = new Set(), coverage = new Set();
+    for (const stop of stops) {
+      require(validId(stop.id) && !stopIds.has(stop.id), `Missing or duplicate stop ID: ${stop.id}`);
+      stopIds.add(stop.id);
+      require(text(stop.title) && text(stop.shortTitle) && text(stop.summary), `Stop needs title, short title, and summary: ${stop.id}`);
+      stop.excerpts ??= []; stop.relatedFiles ??= []; stop.notes ??= [];
+      require(Array.isArray(stop.excerpts) && Array.isArray(stop.relatedFiles) && Array.isArray(stop.notes) && stop.excerpts.length + stop.relatedFiles.length > 0, `Stop needs source references: ${stop.id}`);
+      const ids = new Set();
+      for (const excerpt of stop.excerpts) {
+        require(validId(excerpt.id) && !ids.has(excerpt.id), `Missing or duplicate excerpt ID: ${excerpt.id}`);
+        ids.add(excerpt.id);
+        const file = byPath.get(excerpt.path);
+        require(file, `Unknown source path: ${excerpt.path}`);
+        require(file.source || text(file.patch), `No line-addressable text is available for excerpt: ${excerpt.path}`);
+        require(["old", "new"].includes(excerpt.side) && Number.isSafeInteger(excerpt.start) && excerpt.start > 0 && Number.isSafeInteger(excerpt.end) && excerpt.end >= excerpt.start, `Invalid source range: ${excerpt.path}`);
+        if (file.source) require(excerpt.end <= lineCount(file.source[excerpt.side === "old" ? "old" : "next"]), `Source range exceeds ${excerpt.side} file: ${excerpt.path}`);
+        coverage.add(excerpt.path);
+      }
+      for (const entry of stop.relatedFiles) { require(byPath.has(entry.path) && text(entry.reason), `Invalid supporting source: ${entry.path}`); coverage.add(entry.path); }
+      for (const note of stop.notes) {
+        const excerpt = stop.excerpts.find((entry) => entry.id === note.excerptId);
+        require(excerpt && note.side === excerpt.side && Number.isSafeInteger(note.line) && note.line >= excerpt.start && note.line <= excerpt.end && text(note.title) && text(note.body), `Invalid note reference in ${stop.id}: ${note.excerptId}`);
+      }
+    }
+    require(files.every((file) => coverage.has(file.path)), "Every changed file must appear in an excerpt or supporting group.");
+
+    function filesForStop(stop) { return [...new Set([...stop.excerpts, ...stop.relatedFiles].map((entry) => entry.path))]; }
+    function changeStats(paths) {
+      const scoped = [...new Set(paths)].map((path) => byPath.get(path));
+      return { files: scoped.length, additions: scoped.reduce((sum, file) => sum + (file.additions ?? 0), 0), deletions: scoped.reduce((sum, file) => sum + (file.deletions ?? 0), 0), unknown: scoped.filter((file) => file.additions == null || file.deletions == null).length };
+    }
+    const countLabel = (count) => `${count} file${count === 1 ? "" : "s"}`;
+    function fillStats(target, paths) {
+      const stats = changeStats(paths);
+      target.replaceChildren();
+      for (const [value, className] of [[countLabel(stats.files), ""], [`+${stats.additions}`, "additions"], [`−${stats.deletions}`, "deletions"], ...(stats.unknown ? [[`${countLabel(stats.unknown)} with unavailable line counts`, ""]] : [])]) {
+        const span = document.createElement("span"); span.className = className; span.textContent = value;
+        if (target.childNodes.length) target.append(" ");
+        target.append(span);
+      }
+      target.setAttribute("aria-label", `${countLabel(stats.files)}, ${stats.additions} additions, ${stats.deletions} deletions${stats.unknown ? `; line counts unavailable for ${countLabel(stats.unknown)}` : ""}`);
+    }
+    document.title = `Visual Changes · ${comparison.title}`;
+    const isPR = comparison.kind === "pull-request";
+    const isSnapshot = comparison.kind === "working-tree" || comparison.kind === "staged";
+    field("comparison-kind").textContent = ({ "pull-request": "Pull request", "working-tree": "Working tree", "staged": "Staged changes", "commit": "Commit", "branch": "Branch comparison" })[comparison.kind] || "Comparison";
+    field("comparison-kind").parentElement.hidden = !isPR;
+    field("repository-name").textContent = comparison.repository;
+    field("change-title").textContent = comparison.title;
+    document.querySelector('[data-component="change-summary"]').dataset.changeKind = comparison.kind || "comparison";
+    field("change-link").textContent = isPR && comparison.number ? `#${comparison.number}` : "";
+    field("change-link").removeAttribute("aria-label");
+    if (comparison.url) field("change-link").href = comparison.url;
+    else field("change-link").removeAttribute("href");
+    field("change-status").textContent = comparison.status || "Comparison";
+    field("comparison-range").textContent = comparison.headRef && comparison.baseRef ? `${comparison.headRef} → ${comparison.baseRef}` : comparison.label || "Pinned source comparison";
+    const lastCommit = `Last commit${comparison.baseRef ? ` on ${comparison.baseRef}` : ""}`;
+    const versions = ({
+      "pull-request": [`Shared starting commit${comparison.baseRef ? ` on ${comparison.baseRef}` : ""}`, comparison.headRef || "PR head"],
+      "working-tree": [lastCommit, "Saved snapshot of uncommitted files"],
+      "staged": [lastCommit, "Saved snapshot of staged files"],
+      "commit": ["Parent commit", "Selected commit"],
+      "branch": [comparison.baseRef || "Base revision", comparison.headRef || "Compared revision"]
+    })[comparison.kind] || ["Before revision", "After revision"];
+    for (const [index, side] of ["before", "after"].entries()) {
+      const target = field(`source-${side}`), revision = index === 0 ? comparison.mergeBase : comparison.head;
+      target.textContent = versions[index];
+      if (!(isSnapshot && index === 1) && typeof revision === "string" && /^[a-f0-9]{7,64}$/i.test(revision)) {
+        const commit = document.createElement("code"); commit.textContent = revision.slice(0, 8);
+        target.append(" · ", commit);
+      }
+    }
+    const captured = typeof comparison.capturedAt === "string" ? new Date(comparison.capturedAt) : null;
+    field("captured-row").hidden = !isSnapshot || !captured || !Number.isFinite(captured.getTime());
+    if (!field("captured-row").hidden) {
+      field("source-captured").dateTime = comparison.capturedAt;
+      field("source-captured").textContent = captured.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
+    }
+    const total = changeStats(files.map((file) => file.path));
+    field("changed-file-count").textContent = countLabel(total.files);
+    field("change-additions").textContent = `+${total.additions}`;
+    field("change-deletions").textContent = `−${total.deletions}`;
+    field("stats-unavailable").textContent = total.unknown ? `${countLabel(total.unknown)} with unavailable line counts` : "";
+    const storageKey = "visual-changes:v1:" + JSON.stringify([comparison.repository, comparison.kind, comparison.mergeBase, comparison.head, comparison.label, location.pathname]);
+    let saved = null;
+    try { const raw = localStorage.getItem(storageKey); try { saved = JSON.parse(raw); } catch { /* Ignore malformed saved preferences. */ } } catch { $("storage-status").hidden = false; }
+    const preferences = { collapsed: typeof saved?.collapsed === "boolean" ? saved.collapsed : true, cards: Object.create(null) };
+    if (saved?.cards && typeof saved.cards === "object") for (const [id, state] of Object.entries(saved.cards)) {
+      if (state && typeof state.collapsed === "boolean" && typeof state.full === "boolean") preferences.cards[id] = { collapsed: state.collapsed, full: state.full };
+    }
+    const seen = new Set(stops.flatMap((stop, index) => Array.isArray(saved?.read) && saved.read.includes(stop.id) ? [index] : []));
+    let position = Math.max(0, stops.findIndex((stop) => stop.id === location.hash.slice(1)));
+    let layout = saved?.layout === "split" ? "split" : "unified";
+    let overflow = saved?.overflow === "wrap" ? "wrap" : "scroll";
+    for (const mode of ["unified", "split"]) $(mode).setAttribute("aria-pressed", String(mode === layout));
+    function persistPreferences() {
+      try { localStorage.setItem(storageKey, JSON.stringify({ ...preferences, layout, overflow, theme, read: [...seen].map((index) => stops[index].id) })); }
+      catch { $("storage-status").textContent = "Preferences cannot be saved in this browser."; $("storage-status").hidden = false; }
+    }
+    let FileDiff = null;
+    let SourceFile = null;
+    let parsePatchFiles = null;
+    const patchDiffs = new Map();
+    let cards = [];
+    const themes = { "gruvware-dark": "dark", "gruvware-light": "light", "pierre-dark": "dark", "pierre-light": "light", "tokyo-night": "dark", "nord": "dark", "dracula": "dark", "catppuccin-mocha": "dark", "gruvbox-light-medium": "light", "gruvbox-dark-medium": "dark" };
+    let theme = typeof saved?.theme === "string" && Object.hasOwn(themes, saved.theme) ? saved.theme : "gruvware-dark";
+    function applyTheme() {
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle("dark", themes[theme] === "dark");
+      document.querySelector('meta[name="color-scheme"]').content = themes[theme];
+      $("theme-select").value = theme;
+      for (const card of cards) if (card.renderer) {
+        card.renderer.setOptions({ ...card.renderer.options, theme, themeType: themes[theme] });
+        card.renderer.rerender();
+      }
+    }
+    $("theme-select").onchange = () => {
+      const next = $("theme-select").value;
+      if (!Object.hasOwn(themes, next)) { $("theme-select").value = theme; return; }
+      theme = next; applyTheme(); persistPreferences();
+    };
+    function applyOverflow() {
+      for (const id of ["wrap", "no-wrap"]) $(id).setAttribute("aria-pressed", String($(id).dataset.overflow === overflow));
+      for (const card of cards) if (card.renderer) {
+        card.renderer.setOptions({ ...card.renderer.options, overflow });
+        card.renderer.rerender();
+      }
+    }
+    for (const id of ["wrap", "no-wrap"]) $(id).onclick = () => {
+      const next = $(id).dataset.overflow;
+      if (overflow === next) return;
+      overflow = next; applyOverflow(); persistPreferences();
+    };
+    let selectedNote = null;
+    let engineError = null;
+    applyTheme();
+    applyOverflow();
+
+    function validatePatchSources() {
+      for (const file of files.filter((entry) => !entry.source && entry.patch)) {
+        const matches = parsePatchFiles(file.patch, { throwOnError: true }).flatMap((patch) => patch.files).filter((entry) => entry.name === file.path);
+        require(matches.length === 1, `Patch needs exactly one matching file: ${file.path}`);
+        const diff = matches[0];
+        const types = { added: ["new"], removed: ["deleted"], renamed: ["rename-pure", "rename-changed"], modified: ["change"], changed: ["change"], copied: ["new", "change", "rename-pure", "rename-changed"] };
+        require(types[file.status].includes(diff.type) && (diff.prevName || file.path) === (file.previousPath || file.path), `Patch paths/status do not match file metadata: ${file.path}`);
+        for (const excerpt of stops.flatMap((stop) => stop.excerpts).filter((entry) => entry.path === file.path)) {
+          const side = excerpt.side === "old" ? "deletion" : "addition";
+          require(diff.hunks.some((hunk) => hunk[`${side}Count`] > 0 && excerpt.start >= hunk[`${side}Start`] && excerpt.end < hunk[`${side}Start`] + hunk[`${side}Count`]), `Excerpt is outside supplied ${excerpt.side} patch hunks: ${file.path}:${excerpt.start}–${excerpt.end}`);
+        }
+        patchDiffs.set(file.path, diff);
+      }
+    }
+
+    function renderProgress() {
+      $("rail-count").textContent = `${seen.size} / ${stops.length} read`;
+      $("progress").setAttribute("aria-valuemax", String(stops.length));
+      $("progress").setAttribute("aria-valuenow", String(seen.size));
+      $("progress").setAttribute("aria-valuetext", `${seen.size} of ${stops.length} stops read`);
+      $("progress-fill").style.width = `${seen.size / stops.length * 100}%`;
+      field("read-label").textContent = seen.has(position) ? "Read · mark unread" : "Mark as read";
+      $("mark-read").setAttribute("aria-pressed", String(seen.has(position)));
+      $("rail").querySelectorAll("button").forEach((button, index) => {
+        $("mobile-stop").options[index].textContent = `${index + 1}. ${stops[index].shortTitle}${seen.has(index) ? " (Read)" : ""}`;
+        button.setAttribute("aria-current", index === position ? "step" : "false");
+        button.setAttribute("aria-label", `Stop ${index + 1} of ${stops.length}: ${stops[index].shortTitle} (${seen.has(index) ? "read" : "unread"})`);
+        button.dataset.read = seen.has(index);
+        button.querySelector(".bullet").textContent = seen.has(index) ? "✓" : String(index + 1);
+        button.querySelector(".bullet").classList.toggle("read", seen.has(index));
+      });
+    }
+
+    function highlightNote(index, fromSource = false) {
+      const note = stops[position].notes[index];
+      const card = cards.find((entry) => entry.excerpt.id === note.excerptId);
+      selectedNote = index;
+      document.querySelectorAll(".note-item").forEach((card, at) => {
+        card.classList.toggle("active", at === index);
+        card.setAttribute("aria-pressed", String(at === index));
+      });
+      if (!card) return;
+      const revealDetails = fromSource && matchMedia("(max-width: 1200px)").matches;
+      card.section.querySelector('[data-field="copy-status"]').textContent = "";
+      card.revealNote = revealDetails ? null : index;
+      card.collapsed = false;
+      syncCardControls(card);
+      const annotation = card.host.querySelector(`[data-note-index="${index}"]`);
+      if ((!annotation || !annotation.getClientRects().length) && card.file.source) { card.full = true; renderFile(card); }
+      else if (!card.renderer) renderFile(card);
+      selectSourceNote(card);
+      if (revealDetails) {
+        const target = $(`note-${stops[position].id}-${index}`);
+        target.focus({ preventScroll: true });
+        target.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "nearest", inline: "nearest" });
+      }
+      persistPreferences();
+    }
+
+    function selectSourceNote(card) {
+      const note = selectedNote === null ? null : stops[position].notes[selectedNote];
+      if (!note || note.excerptId !== card.excerpt.id || card.related) return;
+      card.selection = { start: note.line, end: note.line, side: note.side === "old" ? "deletions" : "additions" };
+      card.host.dataset.selectedSide = note.side;
+      card.host.dataset.selectedLine = note.line;
+      updateCopyControl(card);
+      if (!card.renderer) return;
+      card.renderer.setSelectedLines(card.selection);
+      const annotation = card.host.querySelector(`[data-note-index="${selectedNote}"]`);
+      if (card.revealNote === selectedNote && annotation?.getClientRects().length) {
+        annotation.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "nearest", inline: "nearest" });
+        card.revealNote = null;
+      }
+    }
+
+    function focusExcerpt(card) {
+      selectedNote = null;
+      for (const note of document.querySelectorAll('.note-item')) { note.classList.remove('active'); note.setAttribute('aria-pressed', 'false'); }
+      card.collapsed = false; card.oriented = false; card.revealNote = null; card.refocus = true;
+      card.selection = { start: card.excerpt.start, end: card.excerpt.end, side: card.excerpt.side === "old" ? "deletions" : "additions" };
+      if (card.file.source && card.file.source.old === card.file.source.next) card.full = true;
+      card.host.dataset.selectedSide = card.excerpt.side;
+      card.host.dataset.selectedLine = card.excerpt.start;
+      card.section.querySelector('[data-field="copy-status"]').textContent = "";
+      renderFile(card);
+      persistPreferences();
+    }
+
+    function selectedCode(card) {
+      const range = card.selection;
+      if (!range) return null;
+      const side = range.side || (card.excerpt.side === "old" ? "deletions" : "additions");
+      require(["deletions", "additions"].includes(side) && (!range.endSide || range.endSide === side), "Select lines from just one side to copy.");
+      require(Number.isSafeInteger(range.start) && Number.isSafeInteger(range.end) && range.start > 0 && range.end > 0, "Select a valid line range to copy.");
+      const start = Math.min(range.start, range.end), end = Math.max(range.start, range.end);
+      const name = side === "deletions" ? "old" : "new";
+      let contents;
+      if (card.file.source) {
+        const source = card.file.source[name === "old" ? "old" : "next"];
+        const lines = source === null ? [] : source.match(/[^\n]*\n|[^\n]+$/g) || [];
+        require(end <= lines.length, "Selected source lines are unavailable.");
+        contents = lines.slice(start - 1, end).join("");
+      } else {
+        const diff = patchDiffs.get(card.file.path), parts = [];
+        require(diff, "Selected source lines are unavailable.");
+        const column = name === "old" ? "deletion" : "addition";
+        let cursor = start;
+        for (const hunk of diff.hunks) {
+          const first = hunk[`${column}Start`], limit = first + hunk[`${column}Count`];
+          if (cursor < first) break;
+          if (cursor >= limit) continue;
+          const count = Math.min(end + 1, limit) - cursor;
+          const index = hunk[`${column}LineIndex`] + cursor - first;
+          parts.push(diff[`${column}Lines`].slice(index, index + count).join(""));
+          cursor += count;
+          if (cursor > end) break;
+        }
+        require(cursor > end, "Selected source lines are not all present in this patch.");
+        contents = parts.join("");
+      }
+      return { side: name, start, end, contents };
+    }
+
+    function updateCopyControl(card) {
+      const button = card.section.querySelector('[data-action="copy-selection"]');
+      const hint = card.section.querySelector('[data-field="selection-hint"]');
+      try {
+        const selection = selectedCode(card);
+        button.hidden = !selection; hint.hidden = !!selection;
+        hint.textContent = "Drag over line numbers to select code.";
+        if (selection) {
+          const side = button.querySelector('[data-field="copy-side"]');
+          side.textContent = `${selection.side} lines`; side.className = selection.side === "old" ? "deletions" : "additions";
+          button.querySelector('[data-field="copy-range"]').textContent = `${selection.start}–${selection.end}`;
+        }
+      } catch (error) {
+        button.hidden = true; hint.hidden = false; hint.textContent = error.message;
+      }
+    }
+
+    function syncCardControls(card) {
+      const collapse = card.section.querySelector('[data-action="collapse-diff"]');
+      collapse.querySelector('.collapse-indicator').textContent = card.collapsed ? "▸" : "▾";
+      collapse.setAttribute("aria-label", `${card.collapsed ? "Expand" : "Collapse"} ${card.file.status} diff for ${card.file.path}`);
+      collapse.setAttribute("aria-expanded", String(!card.collapsed));
+      card.section.querySelector(".diff-body").hidden = card.collapsed;
+      for (const button of card.section.querySelectorAll('[data-action="set-context"]')) {
+        const full = button.dataset.context === "full";
+        button.setAttribute("aria-pressed", String(card.full === full));
+        button.disabled = full && !card.file.source;
+      }
+      card.host.dataset.contextExpanded = card.full;
+      updateCopyControl(card);
+      preferences.cards[card.section.id] = { collapsed: card.collapsed, full: card.full };
+      syncCollapseAll();
+    }
+
+    function syncCollapseAll() {
+      const allCollapsed = cards.length > 0 && cards.every((card) => card.collapsed);
+      $("collapse-all-diffs").textContent = allCollapsed ? "Reveal all diffs" : "Collapse all diffs";
+      $("collapse-all-diffs").setAttribute("aria-expanded", String(!allCollapsed));
+    }
+
+    function renderDiffCard(excerpt, file, target, related = false) {
+      const section = $("diff-card-template").content.firstElementChild.cloneNode(true);
+      const host = section.querySelector('[data-renderer="pierre-diffs"]');
+      const id = `diff-${stops[position].id}-${related ? "related" : "excerpt"}-${excerpt.id}`;
+      section.id = id; host.id = `${id}-code`;
+      section.querySelector(".diff-body").id = `${id}-body`;
+      section.querySelector('[data-action="collapse-diff"]').setAttribute("aria-controls", `${id}-body`);
+      for (const button of section.querySelectorAll('[data-action="set-context"]')) button.setAttribute("aria-controls", host.id);
+      section.dataset.sourcePath = file.path;
+      section.setAttribute("aria-label", `${file.path} code changes`);
+      section.querySelector('[data-field="source-path"]').textContent = file.previousPath ? `${file.previousPath} → ${file.path}` : file.path;
+      const status = section.querySelector('[data-field="file-status"]');
+      status.dataset.status = file.status;
+      status.textContent = ({ added: "Added", removed: "Removed", modified: "Modified", changed: "Modified", renamed: "Renamed", copied: "Copied" })[file.status];
+      const stats = section.querySelector('[data-field="file-stats"]'); stats.id = `${id}-stats`;
+      section.querySelector('[data-action="collapse-diff"]').setAttribute("aria-describedby", stats.id);
+      fillStats(stats, [file.path]);
+      target.append(section);
+      const state = preferences.cards[id];
+      const card = { excerpt, file, section, host, related, renderer: null, full: state?.full ?? false, collapsed: state?.collapsed ?? preferences.collapsed, oriented: false, revealNote: null, selection: excerpt.start ? { start: excerpt.start, end: excerpt.end, side: excerpt.side === "old" ? "deletions" : "additions" } : null };
+      cards.push(card);
+      section.querySelector('[data-action="copy-selection"]').onclick = async () => {
+        const button = section.querySelector('[data-action="copy-selection"]');
+        const status = section.querySelector('[data-field="copy-status"]');
+        const range = card.selection;
+        button.disabled = true;
+        try {
+          const selection = selectedCode(card);
+          require(selection, "Select lines to copy.");
+          await navigator.clipboard.writeText(selection.contents);
+          if (card.selection !== range) return;
+          status.dataset.state = "copied";
+          status.textContent = "Copied.";
+        } catch {
+          if (card.selection !== range) return;
+          status.dataset.state = "error";
+          status.textContent = "Could not copy. Clipboard access may be blocked; copy the code manually.";
+        } finally { button.disabled = false; updateCopyControl(card); }
+      };
+      section.querySelector('[data-action="collapse-diff"]').onclick = () => { card.collapsed = !card.collapsed; syncCardControls(card); if (!card.collapsed) renderFile(card); persistPreferences(); };
+      for (const button of section.querySelectorAll('[data-action="set-context"]')) button.onclick = () => {
+        const full = button.dataset.context === "full";
+        if (card.full === full) return;
+        card.full = full; renderFile(card); persistPreferences();
+      };
+      syncCardControls(card);
+      renderFile(card);
+      return card;
+    }
+
+    function renderFile(card) {
+      if (!cards.includes(card)) return;
+      syncCardControls(card);
+      if (card.collapsed) return;
+      if (card.renderer) { card.renderer.cleanUp(); card.renderer = null; }
+      card.host.replaceChildren();
+      const stop = stops[position];
+      const { file, excerpt, host, section } = card;
+      const unchanged = !!file.source && file.source.old === file.source.next;
+      host.dataset.renderMode = unchanged ? "file" : "diff";
+      host.dataset.sourcePath = file.path;
+      host.dataset.layout = layout;
+      const status = section.querySelector('[data-field="source-status"]');
+      status.hidden = !!file.source && !unchanged;
+      status.textContent = unchanged ? "No textual changes. Select Full file to inspect the unchanged file." : file.unavailableReason || "";
+      if (unchanged && !card.full) { const message = document.createElement("p"); message.className = "loading"; message.textContent = "Only the file name or metadata changed."; host.append(message); return; }
+      if (!file.source && !file.patch) { const message = document.createElement("p"); message.className = "loading"; message.textContent = "No text diff is available for this file."; host.append(message); return; }
+      if (!FileDiff) {
+        const message = document.createElement("p");
+        message.className = engineError ? "error" : "loading";
+        message.textContent = engineError || "Loading Pierre’s diff renderer from the CDN…";
+        host.append(message);
+        return;
+      }
+      try {
+        const Renderer = unchanged ? SourceFile : FileDiff;
+        card.renderer = new Renderer({
+          theme, themeType: themes[theme], diffStyle: layout,
+          disableFileHeader: true, overflow, lineDiffType: "word-alt",
+          expandUnchanged: card.full, collapsedContextThreshold: 2,
+          hunkSeparators: "line-info", expansionLineCount: 20,
+          enableLineSelection: true,
+          onPostRender(node, instance, phase) {
+            if (phase === "unmount") return;
+            queueMicrotask(() => {
+              if (!cards.includes(card) || card.renderer !== instance) return;
+              if (selectedNote !== null && !card.related && stops[position].notes[selectedNote].excerptId === excerpt.id) {
+                selectSourceNote(card);
+                card.oriented = true;
+              } else instance.setSelectedLines(card.selection);
+              if (!card.oriented && excerpt.start) {
+                const root = node.shadowRoot;
+                const selector = (number) => unchanged ? `[data-line="${number}"]` : layout === "split" ? `[data-code][data-${excerpt.side === "old" ? "deletions" : "additions"}] [data-line="${number}"]` : excerpt.side === "old" ? `[data-line-type="change-deletion"][data-line="${number}"], [data-alt-line="${number}"]` : `[data-line="${number}"]:not([data-line-type="change-deletion"])`;
+                const line = root?.querySelector(selector(excerpt.start));
+                if (card.refocus && (!line || !root?.querySelector(selector(excerpt.end))) && file.source && !card.full) {
+                  card.full = true; renderFile(card); persistPreferences(); return;
+                }
+                if (line) host.scrollTop = Math.max(0, line.getBoundingClientRect().top - host.getBoundingClientRect().top + host.scrollTop - 44);
+                card.oriented = true; card.refocus = false;
+              }
+            });
+          },
+          unsafeCSS: ":host{--diffs-font-size:11px;--diffs-line-height:22px;--diffs-font-family:ui-monospace,SFMono-Regular,Consolas,monospace;} [data-code]{font-variant-ligatures:none;}",
+          onLineSelectionEnd(range) {
+            selectedNote = null;
+            for (const note of document.querySelectorAll('.note-item')) { note.classList.remove('active'); note.setAttribute('aria-pressed', 'false'); }
+            card.selection = range;
+            section.querySelector('[data-field="copy-status"]').textContent = "";
+            updateCopyControl(card);
+          },
+          renderAnnotation(annotation) {
+            const entry = annotation.metadata;
+            const note = document.createElement("button");
+            note.type = "button";
+            note.dataset.noteIndex = entry.index;
+            note.dataset.action = "select-note";
+            note.dataset.sourcePath = file.path;
+            note.dataset.sourceLine = annotation.lineNumber;
+            note.dataset.sourceSide = entry.side;
+            note.setAttribute("aria-controls", `note-${stop.id}-${entry.index}`);
+            note.setAttribute("aria-describedby", `note-${stop.id}-${entry.index}-body note-${stop.id}-${entry.index}-location`);
+            note.textContent = `${entry.marker}  ${entry.title}`;
+            note.style.cssText = "display:block;margin:7px 12px;padding:5px 9px;border:1px solid var(--note-border);border-radius:5px;background:var(--note-bg);color:var(--note-text);font:11px/1.5 system-ui;text-align:left;cursor:pointer";
+            note.addEventListener("click", () => highlightNote(entry.index, true));
+            return note;
+          }
+        });
+        const input = file.source ? {
+          oldFile: file.source.old === null ? null : { name: file.previousPath || file.path, contents: file.source.old },
+          newFile: file.source.next === null ? null : { name: file.path, contents: file.source.next }
+        } : { fileDiff: patchDiffs.get(file.path) };
+        require(file.source || input.fileDiff, `Source path is absent from patch: ${file.path}`);
+        const annotations = stop.notes.map((note, index) => ({ ...note, index })).filter((note) => note.excerptId === excerpt.id && !card.related).map((note) => ({ side: note.side === "old" ? "deletions" : "additions", lineNumber: note.line, metadata: { ...note, marker: String.fromCharCode(65 + note.index) + '.' } }));
+        if (unchanged) card.renderer.render({ file: { name: file.path, contents: file.source.next }, containerWrapper: host, lineAnnotations: annotations.map(({ side, ...annotation }) => annotation) });
+        else card.renderer.render({ ...input, containerWrapper: host, lineAnnotations: annotations });
+      } catch (error) {
+        const message = document.createElement("p");
+        message.className = "error";
+        message.textContent = `Pierre could not render ${file.path}: ${error.message}`;
+        host.replaceChildren(message);
+        console.error(error);
+      }
+    }
+
+    function renderStop() {
+      const stop = stops[position];
+      for (const card of cards) card.renderer?.cleanUp();
+      cards = []; selectedNote = null;
+      $("excerpts").replaceChildren(); $("related-list").replaceChildren();
+      $("tour").dataset.stopId = stop.id;
+      $("tour").dataset.stopNumber = position + 1;
+      $("tour").dataset.stopCount = stops.length;
+      $("notes").dataset.stopId = stop.id;
+      $("stop-position").textContent = `Stop ${position + 1} of ${stops.length}`;
+      $("stop-title").textContent = stop.title;
+      $("stop-summary").textContent = stop.summary;
+      fillStats(field("stop-stats"), filesForStop(stop));
+      $("attention").hidden = !stop.attention;
+      $("attention-body").textContent = stop.attention || "";
+      for (const excerpt of stop.excerpts) {
+        const wrapper = document.createElement("div"); wrapper.className = "excerpt";
+        const caption = document.createElement("p"); caption.className = "code-caption"; caption.dataset.field = "excerpt-caption";
+        const description = document.createElement("span"); description.textContent = excerpt.caption || "Code changes";
+        const focus = document.createElement("button"); focus.type = "button"; focus.className = "btn ghost focus-range"; focus.dataset.action = "focus-excerpt";
+        focus.textContent = `Focus on lines ${excerpt.start}-${excerpt.end}`;
+        focus.setAttribute("aria-label", `Focus on lines ${excerpt.start}-${excerpt.end}, ${excerpt.side === "old" ? "before-change" : "after-change"} in ${excerpt.path}`);
+        caption.append(description, " ", focus);
+        wrapper.append(caption); $("excerpts").append(wrapper);
+        const card = renderDiffCard(excerpt, byPath.get(excerpt.path), wrapper);
+        focus.setAttribute("aria-controls", card.host.id);
+        focus.onclick = () => focusExcerpt(card);
+      }
+      $("related-files").hidden = !stop.relatedFiles.length;
+      stop.relatedFiles.forEach((entry, index) => {
+        const wrapper = document.createElement("div"); wrapper.className = "excerpt"; wrapper.dataset.component = "supporting-file";
+        const reason = document.createElement("p"); reason.className = "code-caption"; reason.textContent = entry.reason;
+        wrapper.append(reason); $("related-list").append(wrapper);
+        renderDiffCard({ id: `file-${index}`, path: entry.path }, byPath.get(entry.path), wrapper, true);
+      });
+      $("mobile-stop").value = String(position);
+      $("previous").hidden = $("previous-icon").disabled = position === 0;
+      $("next").hidden = $("next-icon").disabled = position === stops.length - 1;
+      $("notes").replaceChildren();
+      stop.notes.forEach((note, index) => {
+        const excerpt = stop.excerpts.find((entry) => entry.id === note.excerptId);
+        const sourceCard = cards.find((entry) => entry.excerpt.id === note.excerptId && !entry.related);
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "note-item";
+        card.id = `note-${stop.id}-${index}`;
+        card.dataset.action = "select-note";
+        card.dataset.noteIndex = index;
+        card.dataset.sourcePath = excerpt.path;
+        card.dataset.sourceLine = note.line;
+        card.dataset.sourceSide = note.side;
+        card.setAttribute("aria-pressed", "false");
+        card.setAttribute("aria-controls", sourceCard.host.id);
+        card.setAttribute("aria-labelledby", `${card.id}-marker ${card.id}-title`);
+        card.setAttribute("aria-describedby", `${card.id}-body ${card.id}-location`);
+        card.addEventListener("click", () => highlightNote(index));
+        card.innerHTML = `<span class="bullet">${String.fromCharCode(65 + index)}</span><span><span class="rail-title"></span><span class="rail-sub"></span><span class="note-location"></span></span>`;
+        card.querySelector(".bullet").id = `${card.id}-marker`;
+        card.querySelector(".rail-title").id = `${card.id}-title`;
+        card.querySelector(".rail-sub").id = `${card.id}-body`;
+        card.querySelector(".note-location").id = `${card.id}-location`;
+        card.querySelector(".rail-title").textContent = note.title;
+        card.querySelector(".rail-sub").textContent = note.body;
+        card.querySelector(".note-location").textContent = `${excerpt.path.split("/").at(-1)}:${note.line}`;
+        card.querySelector(".note-location").setAttribute("aria-label", `${excerpt.path}, ${note.side === "old" ? "before-change" : "after-change"} line ${note.line}`);
+        const item = document.createElement("li");
+        item.append(card);
+        $("notes").append(item);
+      });
+      $("note-count").textContent = `${stop.notes.length} notes`;
+      history.replaceState(null, "", "#" + stop.id);
+      renderProgress();
+    }
+
+    function goTo(next) {
+      if (next < 0 || next >= stops.length || next === position) return;
+      position = next;
+      renderStop();
+      $("stop-title").focus({ preventScroll: true });
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
+    stops.forEach((stop, index) => {
+      const row = document.createElement("li");
+      row.innerHTML = `<button type="button" aria-controls="tour"><span class="bullet" aria-hidden="true">${index + 1}</span><span><span class="rail-title"></span><span class="rail-sub" style="display:block"></span></span></button>`;
+      const button = row.querySelector("button");
+      button.dataset.action = "go-to-stop";
+      button.dataset.stopId = stop.id;
+      button.dataset.stopNumber = index + 1;
+      row.querySelector(".rail-sub").id = `stop-${stop.id}-context`;
+      button.setAttribute("aria-describedby", `stop-${stop.id}-context`);
+      row.querySelector(".rail-title").textContent = stop.shortTitle;
+      row.querySelector(".rail-sub").textContent = stop.subline;
+      const stats = document.createElement("span"); stats.className = "rail-stats stats"; fillStats(stats, filesForStop(stop)); row.querySelector("button>span:last-child").append(stats);
+      button.addEventListener("click", () => goTo(index));
+      $("rail").append(row);
+      const option = new Option(`${index + 1}. ${stop.shortTitle}`, String(index));
+      option.dataset.stopId = stop.id;
+      $("mobile-stop").add(option);
+    });
+    $("mobile-stop").addEventListener("change", (event) => goTo(Number(event.target.value)));
+    $("previous").onclick = $("previous-icon").onclick = () => goTo(position - 1);
+    $("next").onclick = $("next-icon").onclick = () => goTo(position + 1);
+    $("mark-read").onclick = () => { if (seen.has(position)) seen.delete(position); else seen.add(position); renderProgress(); persistPreferences(); };
+    $("reset-settings").onclick = () => {
+      let failed = false;
+      for (const storage of ["localStorage", "sessionStorage"]) {
+        try { window[storage].removeItem(storageKey); } catch { failed = true; }
+      }
+      preferences.collapsed = true; preferences.cards = Object.create(null); seen.clear();
+      layout = "unified"; overflow = "scroll"; position = 0;
+      theme = "gruvware-dark";
+      for (const mode of ["unified", "split"]) $(mode).setAttribute("aria-pressed", String(mode === layout));
+      renderStop();
+      $("storage-status").textContent = "Some saved settings could not be cleared. Defaults apply until reload.";
+      applyTheme();
+      applyOverflow();
+      $("storage-status").hidden = !failed;
+    };
+    $("collapse-all-diffs").onclick = () => {
+      const collapse = cards.some((card) => !card.collapsed);
+      preferences.collapsed = collapse;
+      for (const state of Object.values(preferences.cards)) state.collapsed = collapse;
+      for (const card of cards) {
+        card.collapsed = collapse;
+        syncCardControls(card);
+        if (!collapse) renderFile(card);
+      }
+      persistPreferences();
+    };
+    for (const mode of ["unified", "split"]) $(mode).onclick = () => {
+      if (layout === mode) return;
+      layout = mode;
+      for (const id of ["unified", "split"]) $(id).setAttribute("aria-pressed", String(id === layout));
+      for (const card of cards) renderFile(card);
+      persistPreferences();
+    };
+    document.addEventListener("keydown", (event) => {
+      if (event.defaultPrevented || event.isComposing || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+      if (event.target.closest("input, textarea, select, [contenteditable='true']")) return;
+      if (event.key === "j" || event.key === "k") { event.preventDefault(); goTo(position + (event.key === "j" ? 1 : -1)); }
+    });
+    renderStop();
+    document.body.dataset.viewerState = "ready";
+    try {
+      const engine = await import("https://esm.sh/@pierre/diffs@1.6.4?bundle");
+      for (const [name, definition] of Object.entries(JSON.parse($("custom-themes").textContent))) engine.registerCustomTheme(name, () => definition, "textmate");
+      ({ FileDiff, File: SourceFile, parsePatchFiles } = engine);
+    } catch (error) {
+      engineError = "The diff CDN could not be loaded. Check your connection and reload; tour text and navigation still work.";
+      $("engine-status").dataset.state = "error";
+      $("engine-status").textContent = "Flowbite 3.1.2 CSS · @pierre/diffs: CDN unavailable";
+      console.error(error);
+      for (const card of cards) renderFile(card);
+      return;
+    }
+    validatePatchSources();
+    $("engine-status").dataset.state = "loaded";
+    $("engine-status").textContent = "Flowbite 3.1.2 CSS · @pierre/diffs 1.6.4: loaded from CDN";
+    for (const card of cards) renderFile(card);
+    }
+    startTour().catch((error) => {
+      document.body.dataset.viewerState = "error";
+      document.querySelector(".workspace").hidden = true;
+      document.getElementById("engine-status").dataset.state = "error";
+      document.getElementById("engine-status").textContent = "Tour data could not be validated.";
+      const message = document.querySelector('[data-field="tour-error"]');
+      message.hidden = false;
+      message.textContent = `This tour cannot be displayed: ${error.message}`;
+    });
+  </script>
+</body>
+</html>

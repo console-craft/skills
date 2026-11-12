@@ -1,0 +1,34 @@
+async page => {
+  const source = await (await page.request.get('http://localhost:43720/template')).text();
+  const data = JSON.parse(source.match(/<script id="tour-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+  const check = (condition, message) => { if (!condition) throw new Error(message); };
+  await page.route('https://mobile-read.test/tour', route => route.fulfill({ contentType: 'text/html', body: source }));
+  await page.setViewportSize({ width: 600, height: 800 });
+  await page.goto('https://mobile-read.test/tour');
+  await page.locator('#engine-status[data-state="loaded"]').waitFor();
+  await page.evaluate(() => localStorage.clear()); await page.reload();
+  await page.locator('#engine-status[data-state="loaded"]').waitFor();
+  const select = page.locator('#mobile-stop'), options = select.locator('option');
+  check(await select.isVisible(), 'The read indicator is tested in the actual narrow-layout selector');
+  const label = index => `${index + 1}. ${data.stops[index].shortTitle}`;
+  await page.locator('#mark-read').click();
+  check(await options.nth(0).textContent() === label(0) + ' (Read)', 'Marking a stop read must append exactly one " (Read)" to its mobile option');
+  await select.selectOption('1');
+  check(await options.nth(1).textContent() === label(1), 'Navigation alone must not mark a stop read');
+  await page.locator('#mark-read').click(); await select.selectOption('0');
+  check(await options.nth(0).textContent() === label(0) + ' (Read)', 'Re-rendering progress must not duplicate the Read suffix');
+  await page.locator('#mark-read').click();
+  check(await options.nth(0).textContent() === label(0) && await options.nth(1).textContent() === label(1) + ' (Read)', 'Marking unread removes only that stop suffix');
+  await page.reload(); await page.locator('#engine-status[data-state="loaded"]').waitFor();
+  check(await options.nth(1).textContent() === label(1) + ' (Read)' && await page.locator('#rail-count').textContent() === `1 / ${data.stops.length} read`, 'Saved read marks restore their mobile labels and rail count together');
+  await page.setViewportSize({ width: 1440, height: 950 });
+  check(await select.isHidden(), 'Desktop retains the existing rail instead of the mobile selector');
+  await page.locator('#mark-read').click(); await page.setViewportSize({ width: 600, height: 800 });
+  check(await options.nth(0).textContent() === label(0) + ' (Read)', 'A read mark made on desktop is immediately reflected after narrowing');
+  await select.selectOption('1'); await select.selectOption('0');
+  check(await options.nth(0).textContent() === label(0) + ' (Read)', 'Repeated navigation keeps a single suffix and stable numeric option values');
+  await page.locator('#reset-settings').click();
+  check((await options.allTextContents()).every((text, index) => text === label(index)), 'Reset removes all mobile Read suffixes');
+  check(await select.inputValue() === '0' && await page.locator('#progress').getAttribute('aria-valuenow') === '0', 'Reset still selects the first stop and clears manual progress');
+  return 'PASS: narrow selector Read suffixes, mark/unmark, no navigation auto-read or duplication, saved marks, desktop-to-mobile resize, numeric values and reset';
+}
